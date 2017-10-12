@@ -1,0 +1,1 @@
+# Solve³## Android App for solving the Rubick's CubeSolve³ is an app created for my fourth year app development class.
