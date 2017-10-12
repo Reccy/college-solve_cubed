@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SolveCubed</string>
+    <string name="app_name_superscript">Solve³</string>
+    <string name="app_subtitle">Rubick\'s Cube Solver</string>
 </resources>
