@@ -1,12 +1,38 @@
 <resources>
-    <style name="LogoFont">
+    <!-- Logo on the Splash Screen -->
+    <style name="TextLogoFont">
         <item name="android:textSize">75sp</item>
-        <item name="android:elevation">50dp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTextAndIcons</item>
     </style>
-    <style name="LogoFontShadow">
+    <style name="TextLogoFontShadow">
         <item name="android:textSize">75sp</item>
-        <item name="android:elevation">50dp</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <!-- Subtitle on the Splash Screen -->
+    <style name="TextSubtitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorTextAndIcons</item>
+    </style>
+    <style name="TextSubtitleShadow">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <!-- Standard Text -->
+    <style name="TextStandard">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextAndIcons</item>
+    </style>
+    <style name="TextStandardShadow">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <!-- Standard Progress Bar -->
+    <style name="ProgressBarStandard">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTintMode">src_atop</item>
+        <item name="android:indeterminateTint">@color/colorPrimaryLight</item>
     </style>
 </resources>

@@ -16,7 +16,8 @@ public class SplashActivity extends Activity {
     }
 
     /**
-     * Loads the main menu activity after duration 'loadingTimeSeconds' elapses
+     * Loads the main menu activity after duration 'loadingTimeSeconds' elapses and
+     * then finishes the splash screen activity
      */
     private void startMainMenuActivity(int loadingTimeSeconds)
     {
@@ -24,6 +25,7 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 startActivity(new Intent(SplashActivity.this, MainMenuActivity.class));
+                finish();
             }
         }, loadingTimeSeconds * 1000);
     }

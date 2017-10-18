@@ -3,10 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="aaronmeaney.ie.solvecubed.SplashActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-450dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginStart="100dp"
+        android:alpha="0.2"
+        android:src="@drawable/rubiks_cube_vector"/>
+
     <TextView
-        android:id="@+id/splash_subtitle"
+        android:id="@+id/splash_subtitle_background"
+        style="@style/TextSubtitleShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,18 +27,29 @@
         />
 
     <TextView
-        android:id="@+id/splash_title_background"
-        style="@style/LogoFontShadow"
+        android:id="@+id/splash_subtitle"
+        style="@style/TextSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/splash_subtitle"
+        android:layout_marginTop="-2dp"
+        android:layout_alignTop="@id/splash_subtitle_background"
+        android:text="@string/app_subtitle"
+        />
+
+    <TextView
+        android:id="@+id/splash_title_background"
+        style="@style/TextLogoFontShadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/splash_subtitle_background"
         android:text="@string/app_name_superscript"
         />
 
     <TextView
         android:id="@+id/splash_title"
-        style="@style/LogoFont"
+        style="@style/TextLogoFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -37,6 +60,7 @@
 
     <ProgressBar
         android:id="@+id/splash_progressbar"
+        style="@style/ProgressBarStandard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
