@@ -15,13 +15,23 @@
         />
 
     <TextView
-        android:id="@+id/splash_title"
+        android:id="@+id/splash_title_background"
+        style="@style/LogoFontShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/splash_subtitle"
-        android:fontFamily="serif"
-        android:textSize="50sp"
+        android:text="@string/app_name_superscript"
+        />
+
+    <TextView
+        android:id="@+id/splash_title"
+        style="@style/LogoFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-2dp"
+        android:layout_alignTop="@id/splash_title_background"
         android:text="@string/app_name_superscript"
         />
 

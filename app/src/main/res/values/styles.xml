@@ -1,8 +1,12 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="LogoFont">
+        <item name="android:textSize">75sp</item>
+        <item name="android:elevation">50dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
-
+    <style name="LogoFontShadow">
+        <item name="android:textSize">75sp</item>
+        <item name="android:elevation">50dp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
 </resources>
