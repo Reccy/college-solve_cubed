@@ -1,4 +1,9 @@
 <resources>
+    <!-- Splash Screen theme -->
+    <style name="SplashTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <!-- Logo on the Splash Screen -->
     <style name="TextLogoFont">
         <item name="android:textSize">75sp</item>
