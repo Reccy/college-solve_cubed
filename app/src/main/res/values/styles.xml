@@ -40,4 +40,18 @@
         <item name="android:indeterminateTintMode">src_atop</item>
         <item name="android:indeterminateTint">@color/colorPrimaryLight</item>
     </style>
+
+    <!-- Main Menu Button -->
+    <style name="ButtonMainMenu">
+        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:drawableTint">@color/colorTextAndIcons</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <!-- Main Menu Image Button -->
+    <style name="ImageButtonMainMenu">
+        <item name="android:src">@drawable/ic_settings</item>
+        <item name="android:tint">@color/colorTextAndIcons</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
 </resources>
