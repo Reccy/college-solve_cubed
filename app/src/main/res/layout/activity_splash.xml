@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="aaronmeaney.ie.solvecubed.SplashActivity">
+    tools:context="aaronmeaney.ie.solvecubed.SplashActivity"
+    android:clipToPadding="false">
 
     <TextView
         android:id="@+id/splash_subtitle_background"
@@ -25,6 +26,7 @@
         android:layout_alignTop="@id/splash_subtitle_background"
         android:contentDescription="@string/app_subtitle"
         android:text="@string/app_subtitle"
+        android:elevation="20dp"
         />
 
     <TextView
@@ -47,31 +49,32 @@
         android:layout_alignTop="@id/splash_title_background"
         android:contentDescription="@string/app_name"
         android:text="@string/app_name_superscript"
+        android:elevation="20dp"
         />
 
-    <Button
-        android:id="@+id/main_begin_button"
-        style="@style/ButtonMainMenu"
-        android:text="@string/main_start_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:drawableStart="@drawable/ic_explore"
-        />
+        android:layout_marginBottom="50dp">
 
-    <ImageButton
-        android:id="@+id/main_settings_button"
-        style="@style/ImageButtonMainMenu"
-        android:contentDescription="@string/main_settings_button_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:minWidth="50dp"
-        android:minHeight="50dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:scaleType="fitCenter"/>
+        <Button
+            android:id="@+id/main_start_button"
+            style="@style/ButtonMainMenu"
+            android:layout_width="match_parent"
+            android:text="@string/main_start_button"
+            android:drawableStart="@drawable/ic_explore"
+            />
+
+        <Button
+            android:id="@+id/main_settings_button"
+            style="@style/ButtonMainMenu"
+            android:layout_width="match_parent"
+            android:text="@string/main_settings_button"
+            android:drawableStart="@drawable/ic_settings"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

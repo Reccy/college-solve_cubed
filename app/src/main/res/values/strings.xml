@@ -2,6 +2,6 @@
     <string name="app_name">SolveCubed</string>
     <string name="app_name_superscript">Solve³</string>
     <string name="app_subtitle">Rubick\'s Cube Solver</string>
-    <string name="main_start_button">Begin Solving</string>
-    <string name="main_settings_button_description">App Settings</string>
+    <string name="main_start_button">Start Solving</string>
+    <string name="main_settings_button">Settings</string>
 </resources>
