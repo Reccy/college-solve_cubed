@@ -11,14 +11,20 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen">
         <activity
             android:name=".SplashActivity"
+            android:resizeableActivity="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            android:resizeableActivity="false">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CameraCaptureActivity"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/StandardTheme" />
     </application>
 
 </manifest>

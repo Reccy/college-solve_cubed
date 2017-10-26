@@ -4,6 +4,10 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="StandardTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:colorBackground">@color/colorPrimary</item>
+    </style>
+
     <!-- Logo on the Splash Screen -->
     <style name="TextLogoFont">
         <item name="android:textSize">75sp</item>
