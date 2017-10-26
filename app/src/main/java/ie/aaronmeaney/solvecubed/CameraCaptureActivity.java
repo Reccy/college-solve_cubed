@@ -1,4 +1,4 @@
-package aaronmeaney.ie.solvecubed;
+package ie.aaronmeaney.solvecubed;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -6,6 +6,7 @@
     <color name="colorAccent">#ff5252</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
+    <color name="colorWindowBackground">#494949</color>
     <color name="colorTextAndIcons">#FFFFFF</color>
     <color name="colorButtonTransparent">#32ffffff</color>
     <color name="colorDivider">#BDBDBD</color>

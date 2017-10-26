@@ -5,8 +5,12 @@
     <string name="app_subtitle">Rubick\'s Cube Solver</string>
     <string name="main_start_button">Start Solving</string>
     <string name="main_settings_button">Settings</string>
+    <string name="settings_name">SolveCubed Settings</string>
 
     <!-- Settings Strings -->
     <string name="_pref_name">solve_cubed_settings</string>
+
     <string name="_pref_splash_enabled">is_splash_enabled</string>
+    <string name="_pref_splash_enabled_title">Enable Splash Screen</string>
+    <string name="_pref_splash_enabled_desc">Display splash screen for 5 seconds</string>
 </resources>

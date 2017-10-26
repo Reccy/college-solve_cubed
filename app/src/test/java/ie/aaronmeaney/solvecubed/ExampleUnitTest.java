@@ -1,4 +1,4 @@
-package aaronmeaney.ie.solvecubed;
+package ie.aaronmeaney.solvecubed;
 
 import org.junit.Test;
 

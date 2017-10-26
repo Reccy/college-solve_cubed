@@ -4,10 +4,6 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
-    <style name="StandardTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
-        <item name="android:colorBackground">@color/colorPrimary</item>
-    </style>
-
     <!-- Logo on the Splash Screen -->
     <style name="TextLogoFont">
         <item name="android:textSize">75sp</item>
@@ -56,5 +52,21 @@
         <item name="android:drawablePadding">10dp</item>
         <item name="android:background">@drawable/button_main_menu_ripple</item>
         <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- Standard Theme for other app menus -->
+    <style name="StandardTheme" parent="android:Theme.Material.Light">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:actionBarItemBackground">@color/colorPrimary</item>
+        <item name="android:actionBarStyle">@style/StandardTheme.ActionBarStandardTheme</item>
+    </style>
+
+    <style name="StandardTheme.ActionBarStandardTheme" parent="@android:style/Widget.Material.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/StandardTheme.ActionBarStandardTheme.Text</item>
+    </style>
+
+    <style name="StandardTheme.ActionBarStandardTheme.Text" parent="@android:style/TextAppearance.Material.Title">
+        <item name="android:textColor">@color/colorTextAndIcons</item>
     </style>
 </resources>

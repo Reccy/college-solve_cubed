@@ -1,4 +1,4 @@
-package aaronmeaney.ie.solvecubed;
+package ie.aaronmeaney.solvecubed;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("aaronmeaney.ie.solvecubed", appContext.getPackageName());
+        assertEquals("ie.aaronmeaney.solvecubed", appContext.getPackageName());
     }
 }

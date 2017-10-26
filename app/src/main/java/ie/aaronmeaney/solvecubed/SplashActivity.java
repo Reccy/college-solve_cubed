@@ -1,10 +1,10 @@
-package aaronmeaney.ie.solvecubed;
+package ie.aaronmeaney.solvecubed;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,6 +17,9 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Setup the Preference Manager to use default values
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         // Intentional UI blocking code to simulate arbitrary splash screen, only runs in release mode
         pauseOnSplashScreen();
@@ -56,7 +59,8 @@ public class SplashActivity extends Activity {
      * Opens the Settings fragment.
      */
     private void gotoSettings() {
-        throw new java.lang.UnsupportedOperationException();
+        Intent intentPreferences = new Intent(this, PrefsActivity.class);
+        startActivity(intentPreferences);
     }
 
     /**
@@ -64,7 +68,7 @@ public class SplashActivity extends Activity {
      */
     private void pauseOnSplashScreen() {
         // Get the 'isSplashEnabled' setting from Shared Preferences
-        SharedPreferences prefs = getSharedPreferences(getString(R.string._pref_name), MODE_PRIVATE);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isSplashEnabled = prefs.getBoolean(getString(R.string._pref_splash_enabled), true);
 
         // Sleep
