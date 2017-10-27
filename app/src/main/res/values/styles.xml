@@ -59,6 +59,7 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:actionBarItemBackground">@color/colorPrimary</item>
         <item name="android:actionBarStyle">@style/StandardTheme.ActionBarStandardTheme</item>
+        <item name="android:buttonTint">@color/colorAccent</item>
     </style>
 
     <style name="StandardTheme.ActionBarStandardTheme" parent="@android:style/Widget.Material.ActionBar">
