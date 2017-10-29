@@ -51,7 +51,7 @@ public class SplashActivity extends Activity {
      * Transitions to the CameraCapture activity.
      */
     private void gotoCameraCapture() {
-        Intent intentCameraCapture = new Intent(this, CameraCaptureActivity.class);
+        Intent intentCameraCapture = new Intent(this, ColorCalibratorCameraActivity.class);
         startActivity(intentCameraCapture);
     }
 

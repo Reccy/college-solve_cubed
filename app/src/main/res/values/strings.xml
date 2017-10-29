@@ -7,6 +7,16 @@
     <string name="main_settings_button">Settings</string>
     <string name="settings_name">SolveCubed Settings</string>
 
+    <!-- Button Strings -->
+    <string name="_btn_okay">Okay</string>
+    <string name="_btn_cancel">Cancel</string>
+    <string name="_btn_return">Return to Main Menu</string>
+    <string name="_btn_security_permissions">Open App Settings</string>
+
+    <!-- Error Strings -->
+    <string name="_err_security_permissions_title">Security Permissions Error</string>
+    <string name="_err_security_permissions_desc">Please ensure app permissions are enabled and then restart the application.</string>
+
     <!-- Settings Strings -->
     <string name="_pref_name">solve_cubed_settings</string>
 

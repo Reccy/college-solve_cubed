@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     tools:context="ie.aaronmeaney.solvecubed.SplashActivity"
     android:clipToPadding="false">
+
+    <SurfaceView
+        android:id="@+id/surface_color_calibrator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
