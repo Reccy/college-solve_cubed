@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <CheckBoxPreference
-        android:key="@string/_pref_splash_enabled"
-        android:title="@string/_pref_splash_enabled_title"
-        android:summary="@string/_pref_splash_enabled_desc"
+        android:key="@string/pref_splash_enabled_key"
+        android:title="@string/pref_splash_enabled_title"
+        android:summary="@string/pref_splash_enabled_desc"
         android:defaultValue="true" />
 </PreferenceScreen>

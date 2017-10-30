@@ -1,7 +1,7 @@
 <resources>
     <!-- Splash Screen theme -->
     <style name="SplashTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
     <!-- Logo on the Splash Screen -->
@@ -47,10 +47,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorTextAndIcons</item>
-        <item name="android:drawableStart">@drawable/ic_priority_high</item>
+        <item name="android:drawableStart">@drawable/ic_priority_high_24dp</item>
         <item name="android:drawableTint">@color/colorTextAndIcons</item>
         <item name="android:drawablePadding">10dp</item>
-        <item name="android:background">@drawable/button_main_menu_ripple</item>
+        <item name="android:background">@drawable/btn_main_menu_ripple</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 

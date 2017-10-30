@@ -1,26 +1,32 @@
 <resources>
-    <!-- In-App Strings -->
+    <!-- General App Strings -->
     <string name="app_name">SolveCubed</string>
     <string name="app_name_superscript">Solve³</string>
     <string name="app_subtitle">Rubick\'s Cube Solver</string>
+
+    <!-- Main Menu Strings -->
     <string name="main_start_button">Start Solving</string>
     <string name="main_settings_button">Settings</string>
-    <string name="settings_name">SolveCubed Settings</string>
-
-    <!-- Button Strings -->
-    <string name="_btn_okay">Okay</string>
-    <string name="_btn_cancel">Cancel</string>
-    <string name="_btn_return">Return to Main Menu</string>
-    <string name="_btn_security_permissions">Open App Settings</string>
-
-    <!-- Error Strings -->
-    <string name="_err_security_permissions_title">Security Permissions Error</string>
-    <string name="_err_security_permissions_desc">Please ensure app permissions are enabled and then restart the application.</string>
 
     <!-- Settings Strings -->
-    <string name="_pref_name">solve_cubed_settings</string>
+    <string name="settings_name">SolveCubed Settings</string>
 
-    <string name="_pref_splash_enabled">is_splash_enabled</string>
-    <string name="_pref_splash_enabled_title">Enable Splash Screen</string>
-    <string name="_pref_splash_enabled_desc">Display splash screen for 5 seconds</string>
+    <!-- Color Picker Strings -->
+    <string name="color_picker_description">The color picker overlay on top of the camera.</string>
+
+    <!-- Button Strings -->
+    <string name="btn_okay">Okay</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_return_to_main_menu">Return to Main Menu</string>
+    <string name="btn_open_app_settings">Open App Settings</string>
+
+    <!-- Error Strings -->
+    <string name="err_security_permissions">Security Permissions Error</string>
+    <string name="err_security_permissions_desc">Please ensure app permissions are enabled and then restart the application.</string>
+
+    <!-- Settings Strings -->
+    <string name="pref_key">solve_cubed_settings</string>
+    <string name="pref_splash_enabled_key">is_splash_enabled</string>
+    <string name="pref_splash_enabled_title">Enable Splash Screen</string>
+    <string name="pref_splash_enabled_desc">Display splash screen for 5 seconds</string>
 </resources>

@@ -3,11 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ie.aaronmeaney.solvecubed.SplashActivity"
+    tools:context="ie.aaronmeaney.solvecubed.MainActivity"
     android:clipToPadding="false">
 
     <SurfaceView
         android:id="@+id/surface_color_calibrator"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/color_layout_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/camera_color_picker"
+                android:contentDescription="@string/color_picker_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="25dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="50dp"
+                android:maxWidth="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_colorize_black_100dp" />
+
+    </RelativeLayout>
 </RelativeLayout>

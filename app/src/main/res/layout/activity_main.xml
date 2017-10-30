@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ie.aaronmeaney.solvecubed.SplashActivity"
+    tools:context="ie.aaronmeaney.solvecubed.MainActivity"
     android:clipToPadding="false">
 
     <TextView
@@ -65,7 +65,7 @@
             style="@style/ButtonMainMenu"
             android:layout_width="match_parent"
             android:text="@string/main_start_button"
-            android:drawableStart="@drawable/ic_explore"
+            android:drawableStart="@drawable/ic_explore_24dp"
             />
 
         <Button
@@ -73,7 +73,7 @@
             style="@style/ButtonMainMenu"
             android:layout_width="match_parent"
             android:text="@string/main_settings_button"
-            android:drawableStart="@drawable/ic_settings"
+            android:drawableStart="@drawable/ic_settings_24dp"
             android:layout_marginTop="20dp"
             />
     </LinearLayout>

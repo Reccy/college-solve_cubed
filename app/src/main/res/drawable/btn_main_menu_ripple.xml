@@ -11,5 +11,5 @@
     </item>
     <item
         android:id="@android:id/background"
-        android:drawable="@drawable/button_main_menu_background" />
+        android:drawable="@drawable/btn_main_menu_background" />
 </ripple>

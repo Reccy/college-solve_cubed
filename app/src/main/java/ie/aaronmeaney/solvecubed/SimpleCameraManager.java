@@ -132,10 +132,10 @@ class SimpleCameraManager {
             System.out.println("Exception: " + e);
             if (securityAlertDialog == null)
             {
-                securityAlertDialog = new AlertDialog.Builder(context).setTitle(R.string._err_security_permissions_title)
-                        .setMessage(R.string._err_security_permissions_desc)
+                securityAlertDialog = new AlertDialog.Builder(context).setTitle(R.string.err_security_permissions)
+                        .setMessage(R.string.err_security_permissions_desc)
                         .setCancelable(false)
-                        .setPositiveButton(R.string._btn_security_permissions, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.btn_open_app_settings, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
@@ -147,12 +147,12 @@ class SimpleCameraManager {
                                 context.startActivity(intent);
                             }
                         })
-                        .setNegativeButton(R.string._btn_return, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.btn_return_to_main_menu, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
                                 securityAlertDialog = null;
-                                Intent intent = new Intent(context.getApplicationContext(), SplashActivity.class);
+                                Intent intent = new Intent(context.getApplicationContext(), MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 context.startActivity(intent);
                             }

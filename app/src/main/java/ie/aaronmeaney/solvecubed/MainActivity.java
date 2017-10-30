@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
-public class SplashActivity extends Activity {
+public class MainActivity extends Activity {
 
     // Declare UI elements
     Button btnStart;
@@ -25,7 +25,7 @@ public class SplashActivity extends Activity {
         pauseOnSplashScreen();
 
         // Inflate the view
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_main);
 
         // Get references to UI elements
         btnStart = findViewById(R.id.main_start_button);
@@ -69,7 +69,7 @@ public class SplashActivity extends Activity {
     private void pauseOnSplashScreen() {
         // Get the 'isSplashEnabled' setting from Shared Preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isSplashEnabled = prefs.getBoolean(getString(R.string._pref_splash_enabled), true);
+        boolean isSplashEnabled = prefs.getBoolean(getString(R.string.pref_splash_enabled_key), true);
 
         // Sleep
         if (isSplashEnabled)
