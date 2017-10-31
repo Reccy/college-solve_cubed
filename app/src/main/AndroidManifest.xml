@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:resizeableActivity="false"
+        android:screenOrientation="portrait"
         android:theme="@style/StandardTheme">
         <activity
             android:name="ie.aaronmeaney.solvecubed.MainActivity"
@@ -25,10 +26,9 @@
         <activity
             android:name="ie.aaronmeaney.solvecubed.ColorCalibratorCameraActivity"
             android:label="@string/color_picker_activity_title"
-            android:screenOrientation="portrait" />
+            android:theme="@style/StandardTheme.AppCompat"/>
         <activity
-            android:name="ie.aaronmeaney.solvecubed.PrefsActivity"
-            android:screenOrientation="portrait"/>
+            android:name="ie.aaronmeaney.solvecubed.PrefsActivity" />
     </application>
 
 </manifest>

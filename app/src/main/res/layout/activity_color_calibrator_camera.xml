@@ -3,53 +3,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ie.aaronmeaney.solvecubed.MainActivity"
-    android:clipToPadding="false">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="ie.aaronmeaney.solvecubed.MainActivity">
 
     <SurfaceView
         android:id="@+id/surface_color_calibrator"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <View
-        android:id="@+id/color_calibrator_center_anchor"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipToPadding="false">
 
-    <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
-    <ImageView
-        style="@style/CameraOverlayIcon"
-        android:id="@+id/camera_color_picker"
-        android:contentDescription="@string/camera_color_picker_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/color_calibrator_center_anchor"
-        android:layout_toEndOf="@id/color_calibrator_center_anchor"
-        android:layout_marginStart="-7dp"
-        android:layout_marginBottom="-7dp"
-        android:src="@drawable/ic_colorize_100dp" />
+        <View
+            android:id="@+id/color_calibrator_center_anchor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"/>
 
-    <ImageView
-        style="@style/CameraOverlayIcon"
-        android:id="@+id/camera_color_actual"
-        android:contentDescription="@string/camera_color_picker_actual_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/color_calibrator_center_anchor"
-        android:layout_toEndOf="@id/camera_color_picker"
-        android:layout_marginBottom="-7dp"
-        android:tint="@android:color/white"
-        android:src="@drawable/ic_circle_100dp"/>
+        <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
+        <ImageView
+            style="@style/CameraOverlayIcon"
+            android:id="@+id/camera_color_picker"
+            android:contentDescription="@string/camera_color_picker_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/color_calibrator_center_anchor"
+            android:layout_toEndOf="@id/color_calibrator_center_anchor"
+            android:layout_marginStart="-7dp"
+            android:layout_marginBottom="-7dp"
+            android:src="@drawable/ic_colorize_100dp" />
 
-    <ImageView
-        style="@style/CameraOverlayIcon"
-        android:id="@+id/camera_color_reference"
-        android:contentDescription="@string/camera_color_picker_reference_description"
-        android:layout_above="@id/color_calibrator_center_anchor"
-        android:layout_toEndOf="@id/camera_color_picker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-7dp"
-        android:src="@drawable/ic_adjust_100dp"/>
+        <ImageView
+            style="@style/CameraOverlayIcon"
+            android:id="@+id/camera_color_actual"
+            android:contentDescription="@string/camera_color_picker_actual_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/color_calibrator_center_anchor"
+            android:layout_toEndOf="@id/camera_color_picker"
+            android:layout_marginBottom="-7dp"
+            android:tint="@android:color/white"
+            android:src="@drawable/ic_circle_100dp"/>
+
+        <ImageView
+            style="@style/CameraOverlayIcon"
+            android:id="@+id/camera_color_reference"
+            android:contentDescription="@string/camera_color_picker_reference_description"
+            android:layout_above="@id/color_calibrator_center_anchor"
+            android:layout_toEndOf="@id/camera_color_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-7dp"
+            android:src="@drawable/ic_adjust_100dp"/>
+
+        <!-- TODO: Fix FAB shadow clipping -->
+        <android.support.design.widget.FloatingActionButton
+            style="@style/StandardTheme.AppCompat.FloatingActionButton"
+            android:id="@+id/camera_color_capture_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_photo_camera_100dp"
+            android:tint="@color/colorTextAndIcons"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/colorAccent" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="right"
+            android:clipToPadding="false">
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton"
+                android:id="@+id/color_picker_selection_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorRubiksRed" />
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                android:id="@+id/color_picker_selection_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorRubiksGreen"/>
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                android:id="@+id/color_picker_selection_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorRubiksBlue"/>
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                android:id="@+id/color_picker_selection_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorRubiksYellow"/>
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                android:id="@+id/color_picker_selection_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorRubiksOrange"/>
+
+            <android.support.design.widget.FloatingActionButton
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                android:id="@+id/color_picker_selection_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorRubiksWhite"/>
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

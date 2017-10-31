@@ -11,4 +11,11 @@
     <color name="colorButtonTransparent">#32ffffff</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorTransparent">#0000</color>
+
+    <color name="colorRubiksRed">#C41E3A</color>
+    <color name="colorRubiksGreen">#009E60</color>
+    <color name="colorRubiksBlue">#0051BA</color>
+    <color name="colorRubiksYellow">#FFD500</color>
+    <color name="colorRubiksOrange">#FF5800</color>
+    <color name="colorRubiksWhite">#FFFFFF</color>
 </resources>
