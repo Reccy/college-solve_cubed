@@ -11,25 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <RelativeLayout
-        android:id="@+id/color_layout_center"
+    <View
+        android:id="@+id/color_calibrator_center_anchor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
+
+    <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
+    <ImageView
+        style="@style/CameraOverlayIcon"
+        android:id="@+id/camera_color_picker"
+        android:contentDescription="@string/camera_color_picker_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_above="@id/color_calibrator_center_anchor"
+        android:layout_toEndOf="@id/color_calibrator_center_anchor"
+        android:layout_marginStart="-7dp"
+        android:layout_marginBottom="-7dp"
+        android:src="@drawable/ic_colorize_100dp" />
 
-            <ImageView
-                android:id="@+id/camera_color_picker"
-                android:contentDescription="@string/color_picker_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginBottom="25dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="50dp"
-                android:maxWidth="50dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_colorize_black_100dp" />
+    <ImageView
+        style="@style/CameraOverlayIcon"
+        android:id="@+id/camera_color_actual"
+        android:contentDescription="@string/camera_color_picker_actual_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/color_calibrator_center_anchor"
+        android:layout_toEndOf="@id/camera_color_picker"
+        android:layout_marginBottom="-7dp"
+        android:tint="@android:color/white"
+        android:src="@drawable/ic_circle_100dp"/>
 
-    </RelativeLayout>
+    <ImageView
+        style="@style/CameraOverlayIcon"
+        android:id="@+id/camera_color_reference"
+        android:contentDescription="@string/camera_color_picker_reference_description"
+        android:layout_above="@id/color_calibrator_center_anchor"
+        android:layout_toEndOf="@id/camera_color_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-7dp"
+        android:src="@drawable/ic_adjust_100dp"/>
 </RelativeLayout>

@@ -12,7 +12,10 @@
     <string name="settings_name">SolveCubed Settings</string>
 
     <!-- Color Picker Strings -->
-    <string name="color_picker_description">The color picker overlay on top of the camera.</string>
+    <string name="color_picker_activity_title">Color Picker</string>
+    <string name="camera_color_picker_description">The color picker overlay on top of the camera.</string>
+    <string name="camera_color_picker_actual_description"></string>
+    <string name="camera_color_picker_reference_description"></string>
 
     <!-- Button Strings -->
     <string name="btn_okay">Okay</string>

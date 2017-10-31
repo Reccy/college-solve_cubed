@@ -54,6 +54,14 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <!-- Icons for overlay camera icons -->
+    <style name="CameraOverlayIcon">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">50dp</item>
+        <item name="android:maxWidth">50dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
     <!-- Standard Theme for other app menus -->
     <style name="StandardTheme" parent="android:Theme.Material.Light">
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>

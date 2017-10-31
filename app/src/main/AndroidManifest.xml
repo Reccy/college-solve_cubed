@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name="ie.aaronmeaney.solvecubed.ColorCalibratorCameraActivity"
+            android:label="@string/color_picker_activity_title"
             android:screenOrientation="portrait" />
         <activity
             android:name="ie.aaronmeaney.solvecubed.PrefsActivity"
