@@ -2,6 +2,10 @@ package ie.aaronmeaney.solvecubed;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toolbar;
 
 public class PrefsActivity extends PreferenceActivity {
     @Override

@@ -15,11 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/StandardTheme.AppCompat">
+        android:theme="@style/StandardTheme">
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/MainActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,9 @@
         <activity
             android:name=".ColorCalibratorCameraActivity"
             android:label="@string/palette_picker_activity_title"/>
-        <activity android:name=".PrefsActivity" />
+        <activity
+            android:name=".PrefsActivity"
+            android:theme="@style/PreferencesTheme"/>
         <activity
             android:name=".ColorCalibratorConfirmationActivity"
             android:label="@string/palette_confirmation_activity_title" />

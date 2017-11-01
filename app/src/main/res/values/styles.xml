@@ -1,48 +1,85 @@
 <resources>
-    <!-- Splash Screen theme -->
-    <style name="SplashTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/bg_splash</item>
+    <!-- Standard Theme -->
+    <style name="StandardTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="actionBarItemBackground">@color/primary</item>
+        <item name="android:actionBarItemBackground">@color/primary</item>
+        <item name="actionBarStyle">@style/StandardTheme.ActionBar</item>
+        <item name="buttonTint">@color/accent</item>
+        <item name="android:buttonTint">@color/accent</item>
     </style>
 
-    <!-- Logo on the Splash Screen -->
-    <style name="TextLogoFont">
-        <item name="android:textSize">75sp</item>
+    <style name="StandardTheme.ActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@color/primary</item>
+        <item name="titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
+    </style>
+
+    <style name="StandardTheme.ActionBar.Text" parent="@style/TextAppearance.AppCompat.Title">
         <item name="android:textColor">@color/text_and_icons</item>
     </style>
-    <style name="TextLogoFontShadow">
-        <item name="android:textSize">75sp</item>
-        <item name="android:textColor">@color/secondary_text</item>
+
+    <style name="StandardTheme.FloatingActionButton">
+        <item name="borderWidth">0dp</item>
+        <item name="elevation">6dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+        <item name="fabSize">normal</item>
     </style>
 
-    <!-- Subtitle on the Splash Screen -->
-    <style name="TextSubtitle">
-        <item name="android:textSize">20sp</item>
+    <style name="StandardTheme.FloatingActionButton.Small" parent="StandardTheme.FloatingActionButton">
+        <item name="fabSize">mini</item>
+    </style>
+
+    <style name="StandardTheme.Button" parent="@android:style/Widget.Material.Button">
+        <item name="android:backgroundTint">@color/accent</item>
         <item name="android:textColor">@color/text_and_icons</item>
     </style>
-    <style name="TextSubtitleShadow">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/secondary_text</item>
-    </style>
 
-    <!-- Standard Text -->
-    <style name="TextStandard">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/text_and_icons</item>
-    </style>
-    <style name="TextStandardShadow">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/secondary_text</item>
-    </style>
-
-    <!-- Standard Progress Bar -->
-    <style name="ProgressBarStandard">
+    <style name="StandardTheme.ProgressBar">
         <item name="android:indeterminate">true</item>
         <item name="android:indeterminateTintMode">src_atop</item>
         <item name="android:indeterminateTint">@color/primary_light</item>
     </style>
 
-    <!-- Main Menu Button -->
-    <style name="ButtonMainMenu">
+    <style name="StandardTheme.CameraOverlayIcon">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">50dp</item>
+        <item name="android:maxWidth">50dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="StandardTheme.CameraOverlayIcon.Small" parent="StandardTheme.CameraOverlayIcon">
+        <item name="android:maxHeight">25dp</item>
+        <item name="android:maxWidth">25dp</item>
+    </style>
+
+    <!-- TODO: Fix the lack of elevation here -->
+    <style name="StandardTheme.Icon">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">50dp</item>
+        <item name="android:maxWidth">50dp</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="elevation">12dp</item>
+    </style>
+
+    <!-- Preferences Theme -->
+    <style name="PreferencesTheme" parent="@android:style/Theme.Material.Light">
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:actionBarStyle">@style/PreferencesTheme.ActionBar</item>
+    </style>
+
+    <style name="PreferencesTheme.ActionBar" parent="@android:style/Widget.Material.ActionBar">
+        <item name="android:background">@color/primary</item>
+        <item name="android:titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
+    </style>
+
+    <!-- Main Activity Theme -->
+    <style name="MainActivityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="MainActivityTheme.Button" parent="android:Widget.Material.Button">
         <item name="android:text">UNTITLED_BUTTON</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -54,74 +91,33 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
-    <!-- Styles for overlay camera icons -->
-    <style name="CameraOverlayIcon">
-        <item name="android:adjustViewBounds">true</item>
-        <item name="android:maxHeight">50dp</item>
-        <item name="android:maxWidth">50dp</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-
-    <style name="CameraOverlayIcon.Small">
-        <item name="android:adjustViewBounds">true</item>
-        <item name="android:maxHeight">25dp</item>
-        <item name="android:maxWidth">25dp</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-
-    <!-- Style for the icons in the color palette activity -->
-    <!-- TODO: Fix the lack of elevation here -->
-    <style name="ColorPaletteConfirmationIcon" parent="CameraOverlayIcon">
-        <item name="elevation">12dp</item>
-    </style>
-
-    <!-- Standard Theme for other app menus -->
-    <style name="StandardTheme" parent="android:Theme.Material.Light">
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:actionBarItemBackground">@color/primary</item>
-        <item name="android:actionBarStyle">@style/StandardTheme.ActionBar</item>
-        <item name="android:buttonTint">@color/accent</item>
-    </style>
-
-    <style name="StandardTheme.ActionBar" parent="@android:style/Widget.Material.ActionBar">
-        <item name="android:background">@color/primary</item>
-        <item name="android:titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
-    </style>
-
-    <style name="StandardTheme.ActionBar.Text" parent="@android:style/TextAppearance.Material.Title">
+    <style name="MainActivityTheme.Logo">
+        <item name="android:textSize">75sp</item>
         <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
-    <style name="StandardTheme.Button" parent="@android:style/Widget.Material.Button">
-        <item name="android:backgroundTint">@color/accent</item>
+    <style name="MainActivityTheme.Logo.Shadow">
+        <item name="android:textSize">75sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="MainActivityTheme.Subtitle">
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
-    <!-- Standard Theme (app compat) -->
-    <style name="StandardTheme.AppCompat" parent="@style/Theme.AppCompat.Light">
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="actionBarItemBackground">@color/primary</item>
-        <item name="actionBarStyle">@style/StandardTheme.AppCompat.ActionBar</item>
-        <item name="buttonTint">@color/accent</item>
+    <style name="MainActivityTheme.Subtitle.Shadow">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 
-    <style name="StandardTheme.AppCompat.ActionBar" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@color/primary</item>
-        <item name="titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
-    </style>
-
-    <style name="StandardTheme.AppCompat.ActionBar.Text" parent="@style/TextAppearance.AppCompat.Title">
+    <style name="MainActivityTheme.Text">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
-    <style name="StandardTheme.AppCompat.FloatingActionButton">
-        <item name="borderWidth">0dp</item>
-        <item name="elevation">6dp</item>
-        <item name="pressedTranslationZ">12dp</item>
-        <item name="fabSize">normal</item>
-    </style>
-
-    <style name="StandardTheme.AppCompat.FloatingActionButton.Small" parent="StandardTheme.AppCompat.FloatingActionButton">
-        <item name="fabSize">mini</item>
+    <style name="MainActivityTheme.Text.Shadow">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 </resources>

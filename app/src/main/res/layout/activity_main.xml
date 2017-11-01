@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/splash_subtitle_background"
-        style="@style/TextSubtitleShadow"
+        style="@style/MainActivityTheme.Subtitle.Shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/splash_subtitle"
-        style="@style/TextSubtitle"
+        style="@style/MainActivityTheme.Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/splash_title_background"
-        style="@style/TextLogoFontShadow"
+        style="@style/MainActivityTheme.Logo.Shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/splash_title"
-        style="@style/TextLogoFont"
+        style="@style/MainActivityTheme.Logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -62,7 +62,7 @@
 
         <Button
             android:id="@+id/main_start_button"
-            style="@style/ButtonMainMenu"
+            style="@style/MainActivityTheme.Button"
             android:layout_width="match_parent"
             android:text="@string/main_btn_start"
             android:drawableStart="@drawable/ic_explore_24dp"
@@ -70,7 +70,7 @@
 
         <Button
             android:id="@+id/main_settings_button"
-            style="@style/ButtonMainMenu"
+            style="@style/MainActivityTheme.Button"
             android:layout_width="match_parent"
             android:text="@string/main_btn_settings"
             android:drawableStart="@drawable/ic_settings_24dp"

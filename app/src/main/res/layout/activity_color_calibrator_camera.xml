@@ -28,7 +28,7 @@
 
         <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
         <ImageView
-            style="@style/CameraOverlayIcon"
+            style="@style/StandardTheme.CameraOverlayIcon"
             android:id="@+id/camera_color_actual"
             android:contentDescription="@string/palette_picker_indicator_actual_content_description"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:src="@drawable/ic_battery_100dp"/>
 
         <ImageView
-            style="@style/CameraOverlayIcon"
+            style="@style/StandardTheme.CameraOverlayIcon"
             android:id="@+id/camera_color_reference"
             android:contentDescription="@string/palette_picker_probe_content_description"
             android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
 
         <!-- TODO: Fix FAB shadow clipping -->
         <android.support.design.widget.FloatingActionButton
-            style="@style/StandardTheme.AppCompat.FloatingActionButton"
+            style="@style/StandardTheme.FloatingActionButton"
             android:id="@+id/camera_color_capture_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:clipToPadding="false">
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 app:backgroundTint="@color/rubiks_red" />
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_green"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 app:backgroundTint="@color/rubiks_green"/>
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 app:backgroundTint="@color/rubiks_blue"/>
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                 app:backgroundTint="@color/rubiks_yellow"/>
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_orange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 app:backgroundTint="@color/rubiks_orange"/>
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
+                style="@style/StandardTheme.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
