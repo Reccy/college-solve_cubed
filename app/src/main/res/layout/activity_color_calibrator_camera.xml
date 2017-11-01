@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="ie.aaronmeaney.solvecubed.MainActivity">
+    tools:context="ie.aaronmeaney.solvecubed.MainActivity"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <SurfaceView
         android:id="@+id/surface_color_calibrator"
@@ -15,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="12dp"
+        android:clipChildren="false"
         android:clipToPadding="false">
 
         <View
@@ -26,7 +29,22 @@
         <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
         <ImageView
             style="@style/CameraOverlayIcon"
-            android:id="@+id/camera_color_picker"
+            android:id="@+id/camera_color_actual"
+            android:contentDescription="@string/camera_color_picker_actual_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/color_calibrator_center_anchor"
+            android:layout_toEndOf="@id/color_calibrator_center_anchor"
+            android:layout_marginStart="-2dp"
+            android:layout_marginBottom="-2dp"
+            android:rotation="45"
+            android:maxWidth="33dp"
+            android:tint="@color/colorRubiksWhite"
+            android:src="@drawable/ic_battery_100dp"/>
+
+        <ImageView
+            style="@style/CameraOverlayIcon"
+            android:id="@+id/camera_color_reference"
             android:contentDescription="@string/camera_color_picker_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,29 +53,6 @@
             android:layout_marginStart="-7dp"
             android:layout_marginBottom="-7dp"
             android:src="@drawable/ic_colorize_100dp" />
-
-        <ImageView
-            style="@style/CameraOverlayIcon"
-            android:id="@+id/camera_color_actual"
-            android:contentDescription="@string/camera_color_picker_actual_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/color_calibrator_center_anchor"
-            android:layout_toEndOf="@id/camera_color_picker"
-            android:layout_marginBottom="-7dp"
-            android:tint="@android:color/white"
-            android:src="@drawable/ic_circle_100dp"/>
-
-        <ImageView
-            style="@style/CameraOverlayIcon"
-            android:id="@+id/camera_color_reference"
-            android:contentDescription="@string/camera_color_picker_reference_description"
-            android:layout_above="@id/color_calibrator_center_anchor"
-            android:layout_toEndOf="@id/camera_color_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-7dp"
-            android:src="@drawable/ic_adjust_100dp"/>
 
         <!-- TODO: Fix FAB shadow clipping -->
         <android.support.design.widget.FloatingActionButton
@@ -78,15 +73,16 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:gravity="right"
+            android:clipChildren="false"
             android:clipToPadding="false">
 
             <android.support.design.widget.FloatingActionButton
-                style="@style/StandardTheme.AppCompat.FloatingActionButton"
+                style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/colorRubiksRed" />
+                app:backgroundTint="@color/colorRubiksRed" />
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -94,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/colorRubiksGreen"/>
+                app:backgroundTint="@color/colorRubiksGreen"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -102,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/colorRubiksBlue"/>
+                app:backgroundTint="@color/colorRubiksBlue"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -110,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/colorRubiksYellow"/>
+                app:backgroundTint="@color/colorRubiksYellow"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -118,14 +114,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/colorRubiksOrange"/>
+                app:backgroundTint="@color/colorRubiksOrange"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorRubiksWhite"/>
+                app:backgroundTint="@color/colorRubiksWhite"/>
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

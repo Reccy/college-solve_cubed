@@ -88,8 +88,6 @@ class SimpleCameraManager {
                                     @Override
                                     public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
                                         super.onCaptureCompleted(session, request, result);
-
-                                        System.out.println(result.toString());
                                     }
                                 }, null);
                             } catch (Exception e) {
