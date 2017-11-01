@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/app_subtitle"
+        android:text="@string/app_description"
         />
 
     <TextView
@@ -24,8 +24,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-2dp"
         android:layout_alignTop="@id/splash_subtitle_background"
-        android:contentDescription="@string/app_subtitle"
-        android:text="@string/app_subtitle"
+        android:contentDescription="@string/app_description"
+        android:text="@string/app_description"
         android:elevation="20dp"
         />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/splash_subtitle_background"
-        android:text="@string/app_name_superscript"
+        android:text="@string/app_title_superscript"
         />
 
     <TextView
@@ -47,8 +47,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-2dp"
         android:layout_alignTop="@id/splash_title_background"
-        android:contentDescription="@string/app_name"
-        android:text="@string/app_name_superscript"
+        android:contentDescription="@string/app_title"
+        android:text="@string/app_title_superscript"
         android:elevation="20dp"
         />
 
@@ -64,7 +64,7 @@
             android:id="@+id/main_start_button"
             style="@style/ButtonMainMenu"
             android:layout_width="match_parent"
-            android:text="@string/main_start_button"
+            android:text="@string/main_btn_start"
             android:drawableStart="@drawable/ic_explore_24dp"
             />
 
@@ -72,7 +72,7 @@
             android:id="@+id/main_settings_button"
             style="@style/ButtonMainMenu"
             android:layout_width="match_parent"
-            android:text="@string/main_settings_button"
+            android:text="@string/main_btn_settings"
             android:drawableStart="@drawable/ic_settings_24dp"
             android:layout_marginTop="20dp"
             />

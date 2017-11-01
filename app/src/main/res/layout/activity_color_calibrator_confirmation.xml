@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksRed" />
+                    android:tint="@color/rubiks_red" />
 
                 <TextView
                     android:text="@string/color_red"
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksGreen"/>
+                    android:tint="@color/rubiks_green"/>
 
                 <TextView
                     android:text="@string/color_green"
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksBlue"/>
+                    android:tint="@color/rubiks_blue"/>
 
                 <TextView
                     android:text="@string/color_blue"
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksYellow"/>
+                    android:tint="@color/rubiks_yellow"/>
 
                 <TextView
                     android:text="@string/color_yellow"
@@ -129,7 +129,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksOrange"/>
+                    android:tint="@color/rubiks_orange"/>
 
                 <TextView
                     android:text="@string/color_orange"
@@ -152,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
-                    android:tint="@color/colorRubiksWhite"/>
+                    android:tint="@color/rubiks_white"/>
 
                 <TextView
                     android:text="@string/color_white"

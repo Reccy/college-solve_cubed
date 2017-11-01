@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
-    <color name="colorPrimaryDark">#0097A7</color>
-    <color name="colorPrimaryLight">#B2EBF2</color>
-    <color name="colorAccent">#ff5252</color>
-    <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#757575</color>
-    <color name="colorTextAndIcons">#FFFFFF</color>
-    <color name="colorButtonTransparent">#32ffffff</color>
-    <color name="colorDivider">#BDBDBD</color>
-    <color name="colorTransparent">#0000</color>
+    <color name="primary">#00BCD4</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="primary_light">#B2EBF2</color>
+    <color name="accent">#ff5252</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="text_and_icons">#FFFFFF</color>
+    <color name="button_transparent">#32ffffff</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="transparent">#0000</color>
 
-    <color name="colorRubiksRed">#C41E3A</color>
-    <color name="colorRubiksGreen">#009E60</color>
-    <color name="colorRubiksBlue">#0051BA</color>
-    <color name="colorRubiksYellow">#FFD500</color>
-    <color name="colorRubiksOrange">#FF5800</color>
-    <color name="colorRubiksWhite">#FFFFFF</color>
+    <color name="rubiks_red">#C41E3A</color>
+    <color name="rubiks_green">#009E60</color>
+    <color name="rubiks_blue">#0051BA</color>
+    <color name="rubiks_yellow">#FFD500</color>
+    <color name="rubiks_orange">#FF5800</color>
+    <color name="rubiks_white">#FFFFFF</color>
 </resources>

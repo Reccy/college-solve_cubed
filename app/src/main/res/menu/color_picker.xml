@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_help"
         android:icon="@drawable/ic_help_24dp"
-        android:title="@string/help_action_name"
+        android:title="@string/menu_action_help_name"
         android:showAsAction="always"
         app:showAsAction="always"/>
 

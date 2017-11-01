@@ -7,38 +7,38 @@
     <!-- Logo on the Splash Screen -->
     <style name="TextLogoFont">
         <item name="android:textSize">75sp</item>
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
     <style name="TextLogoFontShadow">
         <item name="android:textSize">75sp</item>
-        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 
     <!-- Subtitle on the Splash Screen -->
     <style name="TextSubtitle">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
     <style name="TextSubtitleShadow">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 
     <!-- Standard Text -->
     <style name="TextStandard">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
     <style name="TextStandardShadow">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textColor">@color/secondary_text</item>
     </style>
 
     <!-- Standard Progress Bar -->
     <style name="ProgressBarStandard">
         <item name="android:indeterminate">true</item>
         <item name="android:indeterminateTintMode">src_atop</item>
-        <item name="android:indeterminateTint">@color/colorPrimaryLight</item>
+        <item name="android:indeterminateTint">@color/primary_light</item>
     </style>
 
     <!-- Main Menu Button -->
@@ -46,9 +46,9 @@
         <item name="android:text">UNTITLED_BUTTON</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
         <item name="android:drawableStart">@drawable/ic_priority_high_24dp</item>
-        <item name="android:drawableTint">@color/colorTextAndIcons</item>
+        <item name="android:drawableTint">@color/text_and_icons</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:background">@drawable/btn_main_menu_ripple</item>
         <item name="android:gravity">center_vertical</item>
@@ -77,41 +77,41 @@
 
     <!-- Standard Theme for other app menus -->
     <style name="StandardTheme" parent="android:Theme.Material.Light">
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:actionBarItemBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:actionBarItemBackground">@color/primary</item>
         <item name="android:actionBarStyle">@style/StandardTheme.ActionBar</item>
-        <item name="android:buttonTint">@color/colorAccent</item>
+        <item name="android:buttonTint">@color/accent</item>
     </style>
 
     <style name="StandardTheme.ActionBar" parent="@android:style/Widget.Material.ActionBar">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/primary</item>
         <item name="android:titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
     </style>
 
     <style name="StandardTheme.ActionBar.Text" parent="@android:style/TextAppearance.Material.Title">
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
     <style name="StandardTheme.Button" parent="@android:style/Widget.Material.Button">
-        <item name="android:backgroundTint">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
     <!-- Standard Theme (app compat) -->
     <style name="StandardTheme.AppCompat" parent="@style/Theme.AppCompat.Light">
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="actionBarItemBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="actionBarItemBackground">@color/primary</item>
         <item name="actionBarStyle">@style/StandardTheme.AppCompat.ActionBar</item>
-        <item name="buttonTint">@color/colorAccent</item>
+        <item name="buttonTint">@color/accent</item>
     </style>
 
     <style name="StandardTheme.AppCompat.ActionBar" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@color/colorPrimary</item>
+        <item name="background">@color/primary</item>
         <item name="titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
     </style>
 
     <style name="StandardTheme.AppCompat.ActionBar.Text" parent="@style/TextAppearance.AppCompat.Title">
-        <item name="android:textColor">@color/colorTextAndIcons</item>
+        <item name="android:textColor">@color/text_and_icons</item>
     </style>
 
     <style name="StandardTheme.AppCompat.FloatingActionButton">

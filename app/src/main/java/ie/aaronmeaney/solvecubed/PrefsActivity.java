@@ -8,7 +8,7 @@ public class PrefsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(R.string.settings_name);
+        setTitle(R.string.preferences_activity_title);
 
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction()

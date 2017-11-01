@@ -30,7 +30,7 @@
         <ImageView
             style="@style/CameraOverlayIcon"
             android:id="@+id/camera_color_actual"
-            android:contentDescription="@string/camera_color_picker_actual_description"
+            android:contentDescription="@string/palette_picker_indicator_actual_content_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/color_calibrator_center_anchor"
@@ -39,13 +39,13 @@
             android:layout_marginBottom="-2dp"
             android:rotation="45"
             android:maxWidth="33dp"
-            android:tint="@color/colorRubiksWhite"
+            android:tint="@color/rubiks_white"
             android:src="@drawable/ic_battery_100dp"/>
 
         <ImageView
             style="@style/CameraOverlayIcon"
             android:id="@+id/camera_color_reference"
-            android:contentDescription="@string/camera_color_picker_description"
+            android:contentDescription="@string/palette_picker_probe_content_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/color_calibrator_center_anchor"
@@ -61,10 +61,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_photo_camera_100dp"
-            android:tint="@color/colorTextAndIcons"
+            android:tint="@color/text_and_icons"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/colorAccent" />
+            android:backgroundTint="@color/accent" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:backgroundTint="@color/colorRubiksRed" />
+                app:backgroundTint="@color/rubiks_red" />
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:backgroundTint="@color/colorRubiksGreen"/>
+                app:backgroundTint="@color/rubiks_green"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:backgroundTint="@color/colorRubiksBlue"/>
+                app:backgroundTint="@color/rubiks_blue"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:backgroundTint="@color/colorRubiksYellow"/>
+                app:backgroundTint="@color/rubiks_yellow"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
@@ -114,14 +114,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:backgroundTint="@color/colorRubiksOrange"/>
+                app:backgroundTint="@color/rubiks_orange"/>
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.AppCompat.FloatingActionButton.Small"
                 android:id="@+id/color_picker_selection_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/colorRubiksWhite"/>
+                app:backgroundTint="@color/rubiks_white"/>
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

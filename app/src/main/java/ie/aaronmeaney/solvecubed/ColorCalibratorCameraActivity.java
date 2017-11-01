@@ -107,7 +107,7 @@ public class ColorCalibratorCameraActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_help:
-                Toast.makeText(this, R.string.help_menu_placeholder, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.menu_action_help_placeholder, Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

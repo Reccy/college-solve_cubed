@@ -1,32 +1,38 @@
 <resources>
+
+    <!--===========================-->
+    <!-- Activity Specific Strings -->
+    <!--===========================-->
+
+    <!-- Main Activity Strings -->
+    <string name="main_btn_start">Start Solving</string>
+    <string name="main_btn_settings">Settings</string>
+
+    <!-- Preferences Strings -->
+    <string name="preferences_activity_title">SolveCubed Settings</string>
+
+    <!-- Palette Picker Strings -->
+    <string name="palette_picker_activity_title">Palette Picker</string>
+    <string name="palette_picker_probe_content_description">The palette picker overlay on top of the camera.</string>
+    <string name="palette_picker_indicator_actual_content_description">The color of the object that you\'re pointing the camera at.</string>
+    <string name="palette_picker_indicator_reference_content_description">The color that you should match to your real Rubik\'s cube.</string>
+
+    <!-- Palette Confirmation Strings -->
+    <string name="palette_confirmation_activity_title">Confirm Color Palette</string>
+
+
+    <!--================-->
+    <!-- Config Strings -->
+    <!--================-->
+
     <!-- General App Strings -->
-    <string name="app_name">SolveCubed</string>
-    <string name="app_name_superscript">Solve³</string>
-    <string name="app_subtitle">Rubik\'s Cube Solver</string>
+    <string name="app_title">SolveCubed</string>
+    <string name="app_title_superscript">Solve³</string>
+    <string name="app_description">Rubik\'s Cube Solver</string>
 
-    <!-- Main Menu Strings -->
-    <string name="main_start_button">Start Solving</string>
-    <string name="main_settings_button">Settings</string>
-
-    <!-- Settings Strings -->
-    <string name="settings_name">SolveCubed Settings</string>
-
-    <!-- Color Picker Strings -->
-    <string name="color_picker_activity_title">Color Picker</string>
-    <string name="camera_color_picker_description">The color picker overlay on top of the camera.</string>
-    <string name="camera_color_picker_actual_description">The color of the object that you\'re pointing the camera at.</string>
-    <string name="camera_color_picker_reference_description">The color that you should match to your real Rubik\'s cube.</string>
-
-    <!-- Color Picker Confirmation Strings -->
-    <string name="color_picker_confirmation_activity_title">Confirm Color Palette</string>
-
-    <!-- Literally Color Names -->
-    <string name="color_red">Red</string>
-    <string name="color_green">Green</string>
-    <string name="color_blue">Blue</string>
-    <string name="color_yellow">Yellow</string>
-    <string name="color_orange">Orange</string>
-    <string name="color_white">White</string>
+    <!-- Menu Strings -->
+    <string name="menu_action_help_name">Help</string>
+    <string name="menu_action_help_placeholder">This is placeholder text for the help button!</string>
 
     <!-- Button Strings -->
     <string name="btn_okay">Okay</string>
@@ -34,17 +40,22 @@
     <string name="btn_return_to_main_menu">Return to Main Menu</string>
     <string name="btn_open_app_settings">Open App Settings</string>
 
-    <!-- Help Menu Strings -->
-    <string name="help_action_name">Help</string>
-    <string name="help_menu_placeholder">This is placeholder text for the help button!</string>
-
     <!-- Error Strings -->
     <string name="err_security_permissions">Security Permissions Error</string>
     <string name="err_security_permissions_desc">Please ensure app permissions are enabled and then restart the application.</string>
 
-    <!-- Settings Strings -->
-    <string name="pref_key">solve_cubed_settings</string>
+    <!-- Preferences Strings -->
+    <string name="pref_master_key">solve_cubed_preferences</string>
     <string name="pref_splash_enabled_key">is_splash_enabled</string>
     <string name="pref_splash_enabled_title">Enable Splash Screen</string>
     <string name="pref_splash_enabled_desc">Display splash screen for 5 seconds</string>
+
+    <!-- Literal Color Names -->
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_white">White</string>
+
 </resources>
