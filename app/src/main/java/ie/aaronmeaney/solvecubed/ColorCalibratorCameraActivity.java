@@ -2,15 +2,23 @@ package ie.aaronmeaney.solvecubed;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
 public class ColorCalibratorCameraActivity extends AppCompatActivity {
+
+    // The activity action bar
+    ActionBar actionBar;
 
     // The output view for the camera
     SurfaceView cameraOutput;
@@ -36,9 +44,12 @@ public class ColorCalibratorCameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_calibrator_camera);
 
+        // Get reference to action bar
+        actionBar = getSupportActionBar();
+
+        // Get references to layout views
         cameraOutput = findViewById(R.id.surface_color_calibrator);
         capturePhotoButton = findViewById(R.id.camera_color_capture_button);
-
         referenceColorIndicator = findViewById(R.id.camera_color_reference);
 
         // Make Camera render to the SurfaceView
@@ -82,6 +93,24 @@ public class ColorCalibratorCameraActivity extends AppCompatActivity {
 
         // Create new stream onResume
         simpleCameraManager.streamCameraToTexture(backCameraId, cameraOutput.getHolder().getSurface());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.color_picker, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                Toast.makeText(this, R.string.help_menu_placeholder, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**

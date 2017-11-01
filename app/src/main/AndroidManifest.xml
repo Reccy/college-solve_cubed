@@ -26,7 +26,7 @@
         <activity
             android:name="ie.aaronmeaney.solvecubed.ColorCalibratorCameraActivity"
             android:label="@string/color_picker_activity_title"
-            android:theme="@style/StandardTheme.AppCompat"/>
+            android:theme="@style/StandardTheme.AppCompat" />
         <activity
             android:name="ie.aaronmeaney.solvecubed.PrefsActivity" />
     </application>
