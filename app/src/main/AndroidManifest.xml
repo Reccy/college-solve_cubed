@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/StandardTheme">
+        android:theme="@style/StandardTheme.AppCompat">
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
@@ -28,8 +28,7 @@
         </activity>
         <activity
             android:name=".ColorCalibratorCameraActivity"
-            android:label="@string/color_picker_activity_title"
-            android:theme="@style/StandardTheme.AppCompat" />
+            android:label="@string/color_picker_activity_title"/>
         <activity android:name=".PrefsActivity" />
         <activity
             android:name=".ColorCalibratorConfirmationActivity"

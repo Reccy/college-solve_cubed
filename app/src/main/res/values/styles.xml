@@ -98,7 +98,7 @@
     </style>
 
     <!-- Standard Theme (app compat) -->
-    <style name="StandardTheme.AppCompat" parent="@style/Theme.AppCompat">
+    <style name="StandardTheme.AppCompat" parent="@style/Theme.AppCompat.Light">
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="actionBarItemBackground">@color/colorPrimary</item>
         <item name="actionBarStyle">@style/StandardTheme.AppCompat.ActionBar</item>
