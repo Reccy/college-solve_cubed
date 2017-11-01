@@ -17,6 +17,17 @@
     <string name="camera_color_picker_actual_description">The color of the object that you\'re pointing the camera at.</string>
     <string name="camera_color_picker_reference_description">The color that you should match to your real Rubik\'s cube.</string>
 
+    <!-- Color Picker Confirmation Strings -->
+    <string name="color_picker_confirmation_activity_title">Confirm Color Palette</string>
+
+    <!-- Literally Color Names -->
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_white">White</string>
+
     <!-- Button Strings -->
     <string name="btn_okay">Okay</string>
     <string name="btn_cancel">Cancel</string>

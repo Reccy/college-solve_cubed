@@ -69,6 +69,12 @@
         <item name="android:scaleType">fitXY</item>
     </style>
 
+    <!-- Style for the icons in the color palette activity -->
+    <!-- TODO: Fix the lack of elevation here -->
+    <style name="ColorPaletteConfirmationIcon" parent="CameraOverlayIcon">
+        <item name="elevation">12dp</item>
+    </style>
+
     <!-- Standard Theme for other app menus -->
     <style name="StandardTheme" parent="android:Theme.Material.Light">
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
@@ -83,6 +89,11 @@
     </style>
 
     <style name="StandardTheme.ActionBar.Text" parent="@android:style/TextAppearance.Material.Title">
+        <item name="android:textColor">@color/colorTextAndIcons</item>
+    </style>
+
+    <style name="StandardTheme.Button" parent="@android:style/Widget.Material.Button">
+        <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="android:textColor">@color/colorTextAndIcons</item>
     </style>
 

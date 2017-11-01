@@ -1,5 +1,6 @@
 package ie.aaronmeaney.solvecubed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -82,7 +83,7 @@ public class ColorCalibratorCameraActivity extends AppCompatActivity {
         capturePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Click!");
+                gotoConfirmation();
             }
         });
     }
@@ -111,6 +112,15 @@ public class ColorCalibratorCameraActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * Opens the Color Palette Confirmation activity
+     */
+    private void gotoConfirmation()
+    {
+        Intent intentConfirmation = new Intent(this, ColorCalibratorConfirmationActivity.class);
+        startActivity(intentConfirmation);
     }
 
     /**

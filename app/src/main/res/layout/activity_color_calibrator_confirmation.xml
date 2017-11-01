@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="ie.aaronmeaney.solvecubed.MainActivity"
+    android:padding="12dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_red"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksRed" />
+
+                <TextView
+                    android:text="@string/color_red"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_red"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksGreen"/>
+
+                <TextView
+                    android:text="@string/color_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_green"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksBlue"/>
+
+                <TextView
+                    android:text="@string/color_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_blue"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksYellow"/>
+
+                <TextView
+                    android:text="@string/color_yellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_yellow"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksOrange"/>
+
+                <TextView
+                    android:text="@string/color_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_orange"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    style="@style/ColorPaletteConfirmationIcon"
+                    android:id="@+id/palette_confirmation_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_100dp"
+                    android:tint="@color/colorRubiksWhite"/>
+
+                <TextView
+                    android:text="@string/color_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/palette_confirmation_white"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="24sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            style="@style/StandardTheme.Button"
+            android:id="@+id/color_palette_cancel"
+            android:text="@string/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            style="@style/StandardTheme.Button"
+            android:id="@+id/color_palette_confirm"
+            android:text="@string/btn_okay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+</RelativeLayout>
