@@ -1,3 +1,36 @@
 package ie.aaronmeaney.solvecubed;
 
-public enum RubiksColor {RED,GREEN,BLUE,YELLOW,ORANGE,WHITE};
+/**
+ * Represents the different possible colors on a Rubik's Cube
+ */
+public enum RubiksColor {
+
+    /**
+     * Red tile
+     */
+    RED,
+
+    /**
+     * Green tile
+     */
+    GREEN,
+
+    /**
+     * Blue tile
+     */
+    BLUE,
+
+    /**
+     * Yellow tile
+     */
+    YELLOW,
+
+    /**
+     * Orange tile
+     */
+    ORANGE,
+
+    /**
+     * White tile
+     */
+    WHITE}

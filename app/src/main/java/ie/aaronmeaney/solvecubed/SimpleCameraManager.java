@@ -17,6 +17,8 @@ import android.view.Surface;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// NOTE: May replace this class with a third party API in the future
+
 /**
  * Wrapper class to return objects related to the camera.
  * Uses camera2 api.

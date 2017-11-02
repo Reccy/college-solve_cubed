@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/action_help"
-        android:icon="@drawable/ic_help_24dp"
+        android:icon="@drawable/ic_help_100dp"
         android:title="@string/menu_action_help_name"
-        android:showAsAction="always"
         app:showAsAction="always"/>
-
 </menu>

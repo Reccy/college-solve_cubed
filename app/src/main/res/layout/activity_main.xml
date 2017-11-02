@@ -7,7 +7,7 @@
     android:clipToPadding="false">
 
     <TextView
-        android:id="@+id/splash_subtitle_background"
+        android:id="@+id/main_subtitle_background"
         style="@style/MainActivityTheme.Subtitle.Shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,36 +17,36 @@
         />
 
     <TextView
-        android:id="@+id/splash_subtitle"
+        android:id="@+id/main_subtitle"
         style="@style/MainActivityTheme.Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-2dp"
-        android:layout_alignTop="@id/splash_subtitle_background"
+        android:layout_alignTop="@id/main_subtitle_background"
         android:contentDescription="@string/app_description"
         android:text="@string/app_description"
         android:elevation="20dp"
         />
 
     <TextView
-        android:id="@+id/splash_title_background"
+        android:id="@+id/main_title_background"
         style="@style/MainActivityTheme.Logo.Shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/splash_subtitle_background"
+        android:layout_above="@id/main_subtitle_background"
         android:text="@string/app_title_superscript"
         />
 
     <TextView
-        android:id="@+id/splash_title"
+        android:id="@+id/main_title"
         style="@style/MainActivityTheme.Logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-2dp"
-        android:layout_alignTop="@id/splash_title_background"
+        android:layout_alignTop="@id/main_title_background"
         android:contentDescription="@string/app_title"
         android:text="@string/app_title_superscript"
         android:elevation="20dp"
@@ -69,11 +69,11 @@
             />
 
         <Button
-            android:id="@+id/main_settings_button"
+            android:id="@+id/main_preferences_button"
             style="@style/MainActivityTheme.Button"
             android:layout_width="match_parent"
-            android:text="@string/main_btn_settings"
-            android:drawableStart="@drawable/ic_settings_24dp"
+            android:text="@string/main_button_preferences"
+            android:drawableStart="@drawable/ic_preferences_24dp"
             android:layout_marginTop="20dp"
             />
     </LinearLayout>

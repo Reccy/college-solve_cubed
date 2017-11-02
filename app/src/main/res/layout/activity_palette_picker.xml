@@ -9,7 +9,7 @@
     android:clipToPadding="false">
 
     <SurfaceView
-        android:id="@+id/surface_color_calibrator"
+        android:id="@+id/palette_picker_surface_view_camera"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -21,7 +21,7 @@
         android:clipToPadding="false">
 
         <View
-            android:id="@+id/color_calibrator_center_anchor"
+            android:id="@+id/palette_picker_view_center_anchor"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_centerInParent="true"/>
@@ -29,12 +29,12 @@
         <!-- Note: 7dp margin is the offset to exactly align the point of the icon to the center -->
         <ImageView
             style="@style/StandardTheme.CameraOverlayIcon"
-            android:id="@+id/camera_color_actual"
+            android:id="@+id/palette_picker_image_color_actual"
             android:contentDescription="@string/palette_picker_indicator_actual_content_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/color_calibrator_center_anchor"
-            android:layout_toEndOf="@id/color_calibrator_center_anchor"
+            android:layout_above="@id/palette_picker_view_center_anchor"
+            android:layout_toEndOf="@id/palette_picker_view_center_anchor"
             android:layout_marginStart="-2dp"
             android:layout_marginBottom="-2dp"
             android:rotation="45"
@@ -44,12 +44,12 @@
 
         <ImageView
             style="@style/StandardTheme.CameraOverlayIcon"
-            android:id="@+id/camera_color_reference"
+            android:id="@+id/palette_picker_image_color_reference"
             android:contentDescription="@string/palette_picker_probe_content_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/color_calibrator_center_anchor"
-            android:layout_toEndOf="@id/color_calibrator_center_anchor"
+            android:layout_above="@id/palette_picker_view_center_anchor"
+            android:layout_toEndOf="@id/palette_picker_view_center_anchor"
             android:layout_marginStart="-7dp"
             android:layout_marginBottom="-7dp"
             android:src="@drawable/ic_colorize_100dp" />
@@ -57,10 +57,10 @@
         <!-- TODO: Fix FAB shadow clipping -->
         <android.support.design.widget.FloatingActionButton
             style="@style/StandardTheme.FloatingActionButton"
-            android:id="@+id/camera_color_capture_button"
+            android:id="@+id/palette_picker_fab_capture_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_photo_camera_100dp"
+            android:src="@drawable/ic_camera_100dp"
             android:tint="@color/text_and_icons"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
@@ -72,13 +72,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:gravity="right"
+            android:gravity="end"
             android:clipChildren="false"
             android:clipToPadding="false">
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_red"
+                android:id="@+id/palette_picker_fab_color_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -86,7 +86,7 @@
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_green"
+                android:id="@+id/palette_picker_fab_color_green"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -94,7 +94,7 @@
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_blue"
+                android:id="@+id/palette_picker_fab_color_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -102,7 +102,7 @@
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_yellow"
+                android:id="@+id/palette_picker_fab_color_yellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -110,7 +110,7 @@
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_orange"
+                android:id="@+id/palette_picker_fab_color_orange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -118,7 +118,7 @@
 
             <android.support.design.widget.FloatingActionButton
                 style="@style/StandardTheme.FloatingActionButton.Small"
-                android:id="@+id/color_picker_selection_white"
+                android:id="@+id/palette_picker_fab_color_white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:backgroundTint="@color/rubiks_white"/>

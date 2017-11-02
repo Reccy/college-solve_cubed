@@ -1,5 +1,9 @@
 <resources>
+
+    <!--================-->
     <!-- Standard Theme -->
+    <!--================-->
+
     <style name="StandardTheme" parent="@style/Theme.AppCompat.Light">
         <item name="android:statusBarColor">@color/primary_dark</item>
         <item name="actionBarItemBackground">@color/primary</item>
@@ -61,7 +65,11 @@
         <item name="elevation">12dp</item>
     </style>
 
+
+    <!--===================-->
     <!-- Preferences Theme -->
+    <!--===================-->
+
     <style name="PreferencesTheme" parent="@android:style/Theme.Material.Light">
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
@@ -75,9 +83,13 @@
         <item name="android:titleTextStyle">@style/StandardTheme.ActionBar.Text</item>
     </style>
 
+
+    <!--=====================-->
     <!-- Main Activity Theme -->
+    <!--=====================-->
+
     <style name="MainActivityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:windowBackground">@drawable/bg_main_menu</item>
     </style>
 
     <style name="MainActivityTheme.Button" parent="android:Widget.Material.Button">
@@ -85,7 +97,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/text_and_icons</item>
-        <item name="android:drawableStart">@drawable/ic_priority_high_24dp</item>
+        <item name="android:drawableStart">@drawable/ic_exclamation_100dp</item>
         <item name="android:drawableTint">@color/text_and_icons</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:background">@drawable/btn_main_menu_ripple</item>

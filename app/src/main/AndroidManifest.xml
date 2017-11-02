@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ColorCalibratorCameraActivity"
+            android:name=".PalettePickerActivity"
             android:label="@string/palette_picker_activity_title"/>
         <activity
             android:name=".PrefsActivity"

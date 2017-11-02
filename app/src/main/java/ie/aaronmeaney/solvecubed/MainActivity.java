@@ -1,72 +1,70 @@
 package ie.aaronmeaney.solvecubed;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Splash Screen and Main Menu for the app.
+ */
 public class MainActivity extends Activity {
 
-    // Declare UI elements
-    Button btnStart;
-    Button btnSettings;
+    // Buttons
+    private Button btnStart;
+    private Button btnPreferences;
+
+    // Declare reference to this activity for use by anonymous classes
+    private Activity thisActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Setup the Preference Manager to use default values
+        // Instantiate this activity
+        thisActivity = this;
+
+        // Setup the Preference Manager to set the default values from the preferences XML resource.
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        // Intentional UI blocking code to simulate arbitrary splash screen, only runs in release mode
-        pauseOnSplashScreen();
+        // Intentional UI blocking code to simulate arbitrary splash screen
+        pauseOnSplashScreenIfEnabled();
 
         // Inflate the view
         setContentView(R.layout.activity_main);
 
+
+        /*
+         * Post view inflation
+         */
+
         // Get references to UI elements
         btnStart = findViewById(R.id.main_start_button);
-        btnSettings = findViewById(R.id.main_settings_button);
+        btnPreferences = findViewById(R.id.main_preferences_button);
 
-        // Setup Listeners
+        // Setup button onClick listeners
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoCameraCapture();
+                IntentUtilities.StartActivity(thisActivity, PalettePickerActivity.class);
             }
         });
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
+        btnPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoSettings();
+                IntentUtilities.StartActivity(thisActivity, PrefsActivity.class);
             }
         });
     }
 
     /**
-     * Transitions to the CameraCapture activity.
+     * Sleeps on the main thread if the splash screen is enabled in Shared Preferences.
+     * When used before layout inflation, gives the illusion that the app is still loading.
      */
-    private void gotoCameraCapture() {
-        Intent intentCameraCapture = new Intent(this, ColorCalibratorCameraActivity.class);
-        startActivity(intentCameraCapture);
-    }
-
-    /**
-     * Opens the Settings fragment.
-     */
-    private void gotoSettings() {
-        Intent intentPreferences = new Intent(this, PrefsActivity.class);
-        startActivity(intentPreferences);
-    }
-
-    /**
-     * Sleeps on the main thread if the splash screen is enabled in the SharedPreferences.
-     */
-    private void pauseOnSplashScreen() {
+    private void pauseOnSplashScreenIfEnabled() {
         // Get the 'isSplashEnabled' setting from Shared Preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isSplashEnabled = prefs.getBoolean(getString(R.string.pref_splash_enabled_key), true);
