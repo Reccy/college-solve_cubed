@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import ie.aaronmeaney.utils.IntentUtilities;
+
 /**
  * Splash Screen and Main Menu for the app.
  */

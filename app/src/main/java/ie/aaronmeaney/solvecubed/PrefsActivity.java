@@ -2,10 +2,6 @@ package ie.aaronmeaney.solvecubed;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toolbar;
 
 /**
  * Loads the Preference Fragment to replace the screen content with the preferences XML layout.

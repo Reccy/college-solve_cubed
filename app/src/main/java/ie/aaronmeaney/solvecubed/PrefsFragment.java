@@ -3,6 +3,8 @@ package ie.aaronmeaney.solvecubed;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
+import ie.aaronmeaney.solvecubed.R;
+
 /**
  * Generates the layout for the Preferences Activity with the preferences XML layout.
  */

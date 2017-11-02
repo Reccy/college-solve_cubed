@@ -1,4 +1,4 @@
-package ie.aaronmeaney.solvecubed;
+package ie.aaronmeaney.rubikscube;
 
 /**
  * Represents the different possible colors on a Rubik's Cube

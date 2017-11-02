@@ -9,6 +9,10 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import java.util.HashMap;
 
+import ie.aaronmeaney.rubikscube.RubiksColor;
+import ie.aaronmeaney.utils.IntentUtilities;
+import ie.aaronmeaney.utils.SimpleCameraManager;
+
 /**
  * Allows the user to choose the reference color palette with their camera.
  */

@@ -1,4 +1,4 @@
-package ie.aaronmeaney.solvecubed;
+package ie.aaronmeaney.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,19 +17,22 @@ import android.view.Surface;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ie.aaronmeaney.solvecubed.MainActivity;
+import ie.aaronmeaney.solvecubed.R;
+
 // NOTE: May replace this class with a third party API in the future
 
 /**
  * Wrapper class to return objects related to the camera.
  * Uses camera2 api.
  */
-class SimpleCameraManager {
+public class SimpleCameraManager {
 
     private Context context;
 
     private AlertDialog securityAlertDialog;
 
-    SimpleCameraManager(Context context) {
+    public SimpleCameraManager(Context context) {
         this.context = context;
     }
 
@@ -37,7 +40,7 @@ class SimpleCameraManager {
      * Returns the ID of the back camera of the device
      * @return String of the camera ID. "-1" if the camera was not found.
      */
-    String getBackCameraId()
+    public String getBackCameraId()
     {
         // Get instance of the device camera manager
         CameraManager cameraManager = context.getSystemService(CameraManager.class);
@@ -67,7 +70,7 @@ class SimpleCameraManager {
      * @param cameraId The ID of the camera to capture from
      * @param surface The surface to render the camera output to
      */
-    void streamCameraToTexture(final String cameraId, final Surface surface) {
+    public void streamCameraToTexture(final String cameraId, final Surface surface) {
         final CameraManager cameraManager = context.getSystemService(CameraManager.class);
 
         // Setup camera behaviour

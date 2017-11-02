@@ -6,6 +6,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import ie.aaronmeaney.solvecubed.R;
+
 /**
  * AppCompatActivity with pre-configured menu for the app
  */

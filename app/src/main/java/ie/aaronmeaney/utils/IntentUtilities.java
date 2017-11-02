@@ -1,4 +1,4 @@
-package ie.aaronmeaney.solvecubed;
+package ie.aaronmeaney.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.content.Intent;
 /**
  * Provides convenience methods regarding Intent and Activity Management.
  */
-final class IntentUtilities {
+public final class IntentUtilities {
 
     /**
      * Creates a new intent for the newActivity and starts that activity.
@@ -14,7 +14,7 @@ final class IntentUtilities {
      * @param newActivity  The class of the activity to start.
      * @return The intent created for the newActivity.
      */
-    static Intent StartActivity(Activity thisActivity, Class newActivity) {
+    public static Intent StartActivity(Activity thisActivity, Class newActivity) {
         Intent intent = new Intent(thisActivity, newActivity);
         thisActivity.startActivity(intent);
         return intent;
