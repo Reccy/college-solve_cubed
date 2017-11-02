@@ -11,10 +11,221 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="12dp"
+        android:paddingBottom="12dp"
         android:clipChildren="false"
         android:clipToPadding="false">
 
-    </RelativeLayout>
+        <!-- TODO: Fix FAB shadow clipping -->
+        <android.support.design.widget.FloatingActionButton
+            style="@style/StandardTheme.FloatingActionButton"
+            android:id="@+id/cube_input_fab_capture_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_100dp"
+            android:tint="@color/text_and_icons"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/accent" />
 
+        <!-- Layout for the grid -->
+        <!-- FIXME: Fix alignment of full squares and square borders -->
+        <LinearLayout
+            android:id="@+id/cube_input_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_top_left"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_top"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_top_right"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_left"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/cube_input_indicator_center"
+                    android:layout_width="@dimen/cube_input_grid_square_width"
+                    android:layout_height="@dimen/cube_input_grid_square_width"
+                    android:background="@drawable/shape_square_full"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_right"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_bottom_left"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_bottom"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/cube_input_grid_square_width"
+                        android:layout_height="@dimen/cube_input_grid_square_width"
+                        android:background="@drawable/shape_square_border">
+                    </ImageView>
+
+                    <ImageView
+                        android:id="@+id/cube_input_indicator_bottom_right"
+                        android:layout_width="@dimen/cube_input_indicator_square_width"
+                        android:layout_height="@dimen/cube_input_indicator_square_width"
+                        android:background="@drawable/shape_square_full">
+                    </ImageView>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            style="@style/StandardTheme.Icon"
+            android:id="@+id/cube_input_relative_face_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/cube_input_grid"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_arrow_100dp"/>
+
+        <ImageView
+            style="@style/StandardTheme.Icon"
+            android:id="@+id/cube_input_relative_face_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/cube_input_grid"
+            android:layout_centerVertical="true"
+            android:rotation="270"
+            android:src="@drawable/ic_arrow_100dp"/>
+    </RelativeLayout>
 </RelativeLayout>
