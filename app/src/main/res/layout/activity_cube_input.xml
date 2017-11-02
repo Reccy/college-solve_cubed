@@ -3,4 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <SurfaceView
+        android:id="@+id/cube_input_surface_view_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -18,9 +18,6 @@ import ie.aaronmeaney.utils.SimpleCameraManager;
  */
 public class PalettePickerActivity extends SolveCubedAppCompatActivity {
 
-    // Declare reference to this activity for use by anonymous classes
-    private AppCompatActivity thisActivity;
-
     // Output SurfaceView for the camera
     private SurfaceView cameraSurfaceView;
 
@@ -46,9 +43,6 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Assign this activity
-        thisActivity = this;
-
         // Inflate the view
         setContentView(R.layout.activity_palette_picker);
 
@@ -62,7 +56,7 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
         referenceColorImage = findViewById(R.id.palette_picker_image_color_reference);
 
         // Make Camera render to the SurfaceView
-        simpleCameraManager = new SimpleCameraManager(PalettePickerActivity.this);
+        simpleCameraManager = new SimpleCameraManager(this);
         backCameraId = simpleCameraManager.getBackCameraId();
         simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
 
