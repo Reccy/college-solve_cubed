@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Instantiate this activity
+        // Assign this activity
         thisActivity = this;
 
         // Setup the Preference Manager to set the default values from the preferences XML resource.

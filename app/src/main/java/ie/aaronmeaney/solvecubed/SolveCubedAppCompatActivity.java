@@ -1,5 +1,7 @@
 package ie.aaronmeaney.solvecubed;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +14,19 @@ import ie.aaronmeaney.solvecubed.R;
  * AppCompatActivity with pre-configured menu for the app
  */
 public abstract class SolveCubedAppCompatActivity extends AppCompatActivity {
+
+    /**
+     * Reference to this activity used by anonymous classes
+     */
+    protected Activity thisActivity;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        thisActivity = this;
+    }
+
     /**
      *  Setup the ActionBar menu buttons
      */

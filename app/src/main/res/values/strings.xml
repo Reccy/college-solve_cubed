@@ -20,6 +20,8 @@
     <!-- Palette Confirmation Strings -->
     <string name="palette_confirmation_activity_title">Confirm Color Palette</string>
 
+    <!-- Cube Input Strings -->
+    <string name="cube_input_activity_title">Cube Input</string>
 
     <!--================-->
     <!-- Config Strings -->

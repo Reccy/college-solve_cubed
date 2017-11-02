@@ -46,12 +46,10 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*
-         * Pre view inflation
-         */
-
+        // Assign this activity
         thisActivity = this;
 
+        // Inflate the view
         setContentView(R.layout.activity_palette_picker);
 
         /*
