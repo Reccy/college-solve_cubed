@@ -27,7 +27,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_red"
+                    android:id="@+id/palette_confirmation_image_red"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -37,7 +37,7 @@
                     android:text="@string/color_red"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_red"
+                    android:layout_toEndOf="@id/palette_confirmation_image_red"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -50,7 +50,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_green"
+                    android:id="@+id/palette_confirmation_image_green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -60,7 +60,7 @@
                     android:text="@string/color_green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_green"
+                    android:layout_toEndOf="@id/palette_confirmation_image_green"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -73,7 +73,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_blue"
+                    android:id="@+id/palette_confirmation_image_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -83,7 +83,7 @@
                     android:text="@string/color_blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_blue"
+                    android:layout_toEndOf="@id/palette_confirmation_image_blue"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -102,7 +102,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_yellow"
+                    android:id="@+id/palette_confirmation_image_yellow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -112,7 +112,7 @@
                     android:text="@string/color_yellow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_yellow"
+                    android:layout_toEndOf="@id/palette_confirmation_image_yellow"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -125,7 +125,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_orange"
+                    android:id="@+id/palette_confirmation_image_orange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -135,7 +135,7 @@
                     android:text="@string/color_orange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_orange"
+                    android:layout_toEndOf="@id/palette_confirmation_image_orange"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -148,7 +148,7 @@
 
                 <ImageView
                     style="@style/StandardTheme.Icon"
-                    android:id="@+id/palette_confirmation_white"
+                    android:id="@+id/palette_confirmation_image_white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_circle_100dp"
@@ -158,7 +158,7 @@
                     android:text="@string/color_white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/palette_confirmation_white"
+                    android:layout_toEndOf="@id/palette_confirmation_image_white"
                     android:layout_marginStart="12dp"
                     android:layout_centerVertical="true"
                     android:textSize="24sp"/>
@@ -175,7 +175,7 @@
 
         <Button
             style="@style/StandardTheme.Button"
-            android:id="@+id/color_palette_cancel"
+            android:id="@+id/palette_confirmation_btn_cancel"
             android:text="@string/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
 
         <Button
             style="@style/StandardTheme.Button"
-            android:id="@+id/color_palette_confirm"
+            android:id="@+id/palette_confirmation_btn_confirm"
             android:text="@string/btn_okay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

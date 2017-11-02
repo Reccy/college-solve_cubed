@@ -90,7 +90,7 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
         captureColorFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentUtilities.StartActivity(thisActivity, ColorCalibratorConfirmationActivity.class);
+                IntentUtilities.StartActivity(thisActivity, PaletteConfirmationActivity.class);
             }
         });
     }
