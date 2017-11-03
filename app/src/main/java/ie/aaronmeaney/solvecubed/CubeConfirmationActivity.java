@@ -40,10 +40,10 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
         btnCubeInvert = findViewById(R.id.cube_confirmation_btn_cube_invert);
 
         // Get references to image UI elements
-        cubeMainImage = findViewById(R.id.cube_confirmation_image_cube_main);
+        //cubeMainImage = findViewById(R.id.cube_confirmation_image_cube_main);
 
         // Set the main image tag to know if it's inverted or not
-        cubeMainImage.setTag(R.drawable.ic_rubiks_main);
+        //cubeMainImage.setTag(R.drawable.ic_rubiks_main);
 
         // Setup button onClick listeners
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +87,7 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
      */
     private void invertCube() {
         // Set the main image
+        /*
         switch ((int)cubeMainImage.getTag()) {
             case R.drawable.ic_rubiks_main:
                 cubeMainImage.setImageResource(R.drawable.ic_rubiks_main_inverted);
@@ -101,5 +102,6 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
                 cubeMainImage.setTag(R.drawable.ic_rubiks_main);
                 break;
         }
+        */
     }
 }
