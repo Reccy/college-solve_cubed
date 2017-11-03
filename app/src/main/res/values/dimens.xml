@@ -3,4 +3,7 @@
     <!-- Cube Input Grid -->
     <dimen name="cube_input_grid_square_width">80dp</dimen>
     <dimen name="cube_input_indicator_square_width">30dp</dimen>
+
+    <!-- Cube Confirmation Grid -->
+    <dimen name="cube_confirmation_grid_square_width">22dp</dimen>
 </resources>
