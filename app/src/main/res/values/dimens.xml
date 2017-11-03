@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Cube Input Grid -->
     <dimen name="cube_input_grid_square_width">80dp</dimen>
     <dimen name="cube_input_indicator_square_width">30dp</dimen>
+
+    <!-- Cube 3D Visualisation -->
+    <dimen name="cube_confirmation_face_height">180dp</dimen>
+    <dimen name="cube_confirmation_face_width">100dp</dimen>
 </resources>
