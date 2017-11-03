@@ -56,9 +56,14 @@
 
     <!-- Preferences Strings -->
     <string name="pref_master_key">solve_cubed_preferences</string>
+
     <string name="pref_splash_enabled_key">is_splash_enabled</string>
     <string name="pref_splash_enabled_title">Enable Splash Screen</string>
     <string name="pref_splash_enabled_desc">Display splash screen for 5 seconds</string>
+
+    <string name="pref_text_speech_enabled_key">is_text_speech_enabled</string>
+    <string name="pref_text_speech_enabled_title">Enable Text-to-Speech</string>
+    <string name="pref_text_speech_enabled_desc">Enable speech accessibility for help menu</string>
 
     <!-- Literal Color Names -->
     <string name="color_red">Red</string>

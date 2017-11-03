@@ -5,4 +5,9 @@
         android:title="@string/pref_splash_enabled_title"
         android:summary="@string/pref_splash_enabled_desc"
         android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="@string/pref_text_speech_enabled_key"
+        android:title="@string/pref_text_speech_enabled_title"
+        android:summary="@string/pref_text_speech_enabled_desc"
+        android:defaultValue="true" />
 </PreferenceScreen>
