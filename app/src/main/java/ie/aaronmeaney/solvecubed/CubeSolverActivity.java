@@ -7,41 +7,41 @@ import android.widget.Button;
 import ie.aaronmeaney.utils.IntentUtilities;
 
 /**
- * Allows the user to confirm their cube configuration from the CubeInputActivity.
+ * Displays the solution for solving the Rubik's cube configured by the previous activities.
  */
-public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
+public class CubeSolverActivity extends SolveCubedAppCompatActivity {
 
     // Buttons
-    private Button btnCancel;
-    private Button btnConfirm;
+    private Button btnPrevious;
+    private Button btnNext;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
 
         // Inflate the view
-        setContentView(R.layout.activity_cube_confirmation);
+        setContentView(R.layout.activity_cube_solver);
 
         /*
          * Post view inflation
          */
 
         // Get references to button UI elements
-        btnCancel = findViewById(R.id.cube_confirmation_btn_cancel);
-        btnConfirm = findViewById(R.id.cube_confirmation_btn_confirm);
+        btnPrevious = findViewById(R.id.cube_solver_btn_previous);
+        btnNext = findViewById(R.id.cube_solver_btn_next);
 
         // Setup button onClick listeners
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        btnPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentUtilities.StartActivity(thisActivity, CubeSolverActivity.class);
+                IntentUtilities.StartActivityAndClearBackstack(thisActivity, MainActivity.class);
             }
         });
     }

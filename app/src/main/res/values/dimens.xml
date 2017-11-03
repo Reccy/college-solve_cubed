@@ -6,4 +6,5 @@
 
     <!-- Cube Confirmation Grid -->
     <dimen name="cube_confirmation_grid_square_width">22dp</dimen>
+    <dimen name="cube_solver_grid_square_width">22dp</dimen>
 </resources>

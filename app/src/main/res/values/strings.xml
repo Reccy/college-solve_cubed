@@ -26,6 +26,9 @@
     <!-- Cube Confirmation Strings -->
     <string name="cube_confirmation_activity_title">Confirm Cube Configuration</string>
 
+    <!-- Cube Solver Strings -->
+    <string name="cube_solver_activity_title">Rubik\'s Cube Solver</string>
+
     <!--================-->
     <!-- Config Strings -->
     <!--================-->
@@ -44,7 +47,8 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_return_to_main_menu">Return to Main Menu</string>
     <string name="btn_open_app_settings">Open App Settings</string>
-    <string name="btn_invert">Invert</string>
+    <string name="btn_previous">Previous</string>
+    <string name="btn_next">Next</string>
 
     <!-- Error Strings -->
     <string name="err_security_permissions">Security Permissions Error</string>

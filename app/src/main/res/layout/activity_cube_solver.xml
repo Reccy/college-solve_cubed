@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/cube_solver_text_move_title"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="63sp"
+        android:text="U2'"/>
+
+    <TextView
+        android:id="@+id/cube_solver_text_move_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="Step: 1/20"
+        android:textSize="24sp" />
+
+    <!-- Cube foldout -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <!-- Cube Face (For Padding) -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_dummy"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+
+                <ImageView
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face (Top) -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_top"
+            android:layout_toRightOf="@id/cube_solver_layout_face_dummy"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_1_1"
+                    android:layout_width="22dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow" />
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_top_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face (Left) -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_left"
+            android:layout_below="@id/cube_solver_layout_face_top"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_1_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_left_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face (Bottom) -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_bottom"
+            android:layout_below="@id/cube_solver_layout_face_left"
+            android:layout_toRightOf="@id/cube_solver_layout_face_dummy"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_1_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_bottom_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_forward"
+            android:layout_below="@id/cube_solver_layout_face_top"
+            android:layout_toRightOf="@id/cube_solver_layout_face_left"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_1_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_forward_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_right"
+            android:layout_below="@id/cube_solver_layout_face_top"
+            android:layout_toRightOf="@id/cube_solver_layout_face_forward"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_1_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_red"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_right_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_white"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cube Face -->
+        <LinearLayout
+            android:id="@+id/cube_solver_layout_face_back"
+            android:layout_below="@id/cube_solver_layout_face_top"
+            android:layout_toRightOf="@id/cube_solver_layout_face_right"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_1_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_1_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_1_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_2_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_orange"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_2_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_2_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_yellow"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_3_1"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_green"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_3_2"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+
+                <ImageView
+                    android:id="@+id/cube_solver_side_back_3_3"
+                    android:layout_width="@dimen/cube_solver_grid_square_width"
+                    android:layout_height="@dimen/cube_solver_grid_square_width"
+                    android:src="@drawable/shape_square_full"
+                    android:tint="@color/rubiks_blue"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Confirm/Cancel buttons -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            style="@style/StandardTheme.Button"
+            android:id="@+id/cube_solver_btn_previous"
+            android:text="@string/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            style="@style/StandardTheme.Button"
+            android:id="@+id/cube_solver_btn_next"
+            android:text="@string/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -50,5 +50,10 @@
             android:label="@string/cube_confirmation_activity_title"
             android:screenOrientation="portrait"
             android:resizeableActivity="false"/>
+        <activity
+            android:name=".CubeSolverActivity"
+            android:label="@string/cube_solver_activity_title"
+            android:screenOrientation="portrait"
+            android:resizeableActivity="false" />
     </application>
 </manifest>
