@@ -16,18 +16,23 @@
     <string name="palette_picker_probe_content_description">The palette picker overlay on top of the camera.</string>
     <string name="palette_picker_indicator_actual_content_description">The color of the object that you\'re pointing the camera at.</string>
     <string name="palette_picker_indicator_reference_content_description">The color that you should match to your real Rubik\'s cube.</string>
+    <string name="palette_picker_help">Place the color picker over your Rubick\'s cube squares to calibrate the camera. The selected square can be seen on the right hand side of the screen.</string>
 
     <!-- Palette Confirmation Strings -->
     <string name="palette_confirmation_activity_title">Confirm Color Palette</string>
+    <string name="palette_confirmation_help">Confirm if these are the correct colours that you\'ve calibrated with your Rubik\'s cube.</string>
 
     <!-- Cube Input Strings -->
     <string name="cube_input_activity_title">Configure Cube</string>
+    <string name="cube_input_help">Place your Rubick\'s cube in the grid and press the capture button to configure the Rubick\'s cube.</string>
 
     <!-- Cube Confirmation Strings -->
     <string name="cube_confirmation_activity_title">Confirm Cube Configuration</string>
+    <string name="cube_confirmation_help">Confirm if this cube foldout matches your Rubick\'s cube configuration.</string>
 
     <!-- Cube Solver Strings -->
     <string name="cube_solver_activity_title">Rubik\'s Cube Solver</string>
+    <string name="cube_solver_help">Follow the steps to solve your Rubick\'s cube.</string>
 
     <!--================-->
     <!-- Config Strings -->

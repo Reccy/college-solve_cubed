@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-import ie.aaronmeaney.solvecubed.R;
-
 /**
  * AppCompatActivity with pre-configured menu for the app
  */
@@ -77,7 +75,7 @@ public abstract class SolveCubedAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * Class to be overridden in concrete classes to handle the Help action.
+     * Class can be overridden in concrete classes to handle the Help action
      */
     protected void onHelpMenuActionSelected() {
         Toast.makeText(this, helpDialogue, Toast.LENGTH_LONG).show();
@@ -88,6 +86,22 @@ public abstract class SolveCubedAppCompatActivity extends AppCompatActivity {
         if(isSpeechEnabled) {
             speak(helpDialogue);
         }
+    }
+
+    /**
+     * Sets the dialogue displayed when the help button is pressed
+     * @param dialogue The new dialogue
+     */
+    protected void setHelpDialogue(String dialogue) {
+        helpDialogue = dialogue;
+    }
+
+    /**
+     * The help dialogue displayed when the help button is pressed
+     * @return The help dialogue
+     */
+    protected String getHelpDialogue() {
+        return helpDialogue;
     }
 
     /**

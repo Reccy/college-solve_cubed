@@ -47,6 +47,8 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
 
+        setHelpDialogue(getResources().getString(R.string.cube_input_help));
+
         // Inflate the view
         setContentView(R.layout.activity_cube_input);
 

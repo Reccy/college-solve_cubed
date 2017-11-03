@@ -19,6 +19,8 @@ public class CubeSolverActivity extends SolveCubedAppCompatActivity {
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
 
+        setHelpDialogue(getResources().getString(R.string.cube_solver_help));
+
         // Inflate the view
         setContentView(R.layout.activity_cube_solver);
 

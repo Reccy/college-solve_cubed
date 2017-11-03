@@ -43,6 +43,8 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setHelpDialogue(getResources().getString(R.string.palette_picker_help));
+
         // Inflate the view
         setContentView(R.layout.activity_palette_picker);
 
