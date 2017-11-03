@@ -1,11 +1,14 @@
 package ie.aaronmeaney.solvecubed;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.ImageView;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
+import ie.aaronmeaney.utils.IntentUtilities;
 import ie.aaronmeaney.utils.SimpleCameraManager;
 
 /**
@@ -37,6 +40,9 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
     private ImageView relativeFaceTop;
     private ImageView relativeFaceLeft;
 
+    // FAB to capture the cube face configuration the camera is looking at
+    private FloatingActionButton captureCubeFaceFAB;
+
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
@@ -50,6 +56,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
 
         // Get references to UI elements
         cameraSurfaceView = findViewById(R.id.cube_input_surface_view_camera);
+
         indicatorTopLeft = findViewById(R.id.cube_input_indicator_top_left);
         indicatorTop = findViewById(R.id.cube_input_indicator_top);
         indicatorTopRight = findViewById(R.id.cube_input_indicator_top_right);
@@ -59,13 +66,24 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
         indicatorBottomLeft = findViewById(R.id.cube_input_indicator_bottom_left);
         indicatorBottom = findViewById(R.id.cube_input_indicator_bottom);
         indicatorBottomRight = findViewById(R.id.cube_input_indicator_bottom_right);
+
         relativeFaceTop = findViewById(R.id.cube_input_relative_face_top);
         relativeFaceLeft = findViewById(R.id.cube_input_relative_face_left);
+
+        captureCubeFaceFAB = findViewById(R.id.cube_input_fab_capture_cube_face);
 
         // Make Camera render to the SurfaceView
         simpleCameraManager = new SimpleCameraManager(this);
         backCameraId = simpleCameraManager.getBackCameraId();
         simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
+
+        // Setup onClickListener for the capture FAB
+        captureCubeFaceFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentUtilities.StartActivity(thisActivity, CubeConfirmationActivity.class);
+            }
+        });
 
         // TEMP: Colors only used for demonstration purposes
         setIndicatorColor(indicatorTopLeft, RubiksColor.ORANGE);

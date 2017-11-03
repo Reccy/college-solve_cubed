@@ -45,7 +45,10 @@
             android:label="@string/cube_input_activity_title"
             android:screenOrientation="portrait"
             android:resizeableActivity="false"/>
-
+        <activity
+            android:name=".CubeConfirmationActivity"
+            android:label="@string/cube_confirmation_activity_title"
+            android:screenOrientation="portrait"
+            android:resizeableActivity="false"/>
     </application>
-
 </manifest>

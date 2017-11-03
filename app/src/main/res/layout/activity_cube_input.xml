@@ -18,7 +18,7 @@
         <!-- TODO: Fix FAB shadow clipping -->
         <android.support.design.widget.FloatingActionButton
             style="@style/StandardTheme.FloatingActionButton"
-            android:id="@+id/cube_input_fab_capture_color"
+            android:id="@+id/cube_input_fab_capture_cube_face"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_camera_100dp"
