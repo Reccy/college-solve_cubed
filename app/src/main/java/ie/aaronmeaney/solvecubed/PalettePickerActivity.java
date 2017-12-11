@@ -1,10 +1,11 @@
 package ie.aaronmeaney.solvecubed;
 
 import android.graphics.Color;
+import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.view.SurfaceView;
+import android.view.Surface;
+import android.view.TextureView;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
@@ -18,10 +19,10 @@ import ie.aaronmeaney.utils.SimpleCameraManager;
 /**
  * Allows the user to choose the reference color palette with their camera.
  */
-public class PalettePickerActivity extends SolveCubedAppCompatActivity {
+public class PalettePickerActivity extends SolveCubedAppCompatActivity implements TextureView.SurfaceTextureListener {
 
-    // Output SurfaceView for the camera
-    private SurfaceView cameraSurfaceView;
+    // Output TextureView for the camera
+    private TextureView cameraTextureView;
 
     // Wrapper for camera2 API
     private SimpleCameraManager simpleCameraManager;
@@ -61,14 +62,16 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
          */
 
         // Get references to UI elements
-        cameraSurfaceView = findViewById(R.id.palette_picker_surface_view_camera);
+        cameraTextureView = findViewById(R.id.palette_picker_texture_view_camera);
         captureColorFAB = findViewById(R.id.palette_picker_fab_capture_color);
         referenceColorImage = findViewById(R.id.palette_picker_image_color_reference);
 
-        // Make Camera render to the SurfaceView
+        // Setup camera texture listener
+        cameraTextureView.setSurfaceTextureListener(this);
+
+        // Setup simple camera manager
         simpleCameraManager = new SimpleCameraManager(this);
         backCameraId = simpleCameraManager.getBackCameraId();
-        simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
 
         // Assign Rubik's Color to each color FAB
         rubiksColorsToFabsHashMap = new LinkedHashMap<>();
@@ -106,7 +109,7 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Set the selected color
-                rubiksColorToRealColor.put(selectedColor, simpleCameraManager.getCenterColorFromCamera());
+                rubiksColorToRealColor.put(selectedColor, simpleCameraManager.getCenterPixelColorFromTextureView(cameraTextureView));
 
                 // Find the next unset color and select it
                 for (HashMap.Entry<RubiksColor, Color> colorEntry : rubiksColorToRealColor.entrySet()) {
@@ -130,10 +133,25 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
 
         // Make Camera render to the SurfaceView
-        simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
+        simpleCameraManager.streamCameraToTexture(backCameraId, new Surface(surfaceTexture));
     }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i1) {}
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        return false;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {}
 
     /**
      * Selects the Rubik's fab as the new reference color and runs an animation to display this to the user.

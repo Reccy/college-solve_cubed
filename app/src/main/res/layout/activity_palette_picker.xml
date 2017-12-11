@@ -6,8 +6,8 @@
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <SurfaceView
-        android:id="@+id/palette_picker_surface_view_camera"
+    <TextureView
+        android:id="@+id/palette_picker_texture_view_camera"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

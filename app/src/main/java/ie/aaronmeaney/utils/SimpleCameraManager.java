@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -15,6 +16,9 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.net.Uri;
 import android.provider.Settings;
 import android.view.Surface;
+import android.view.TextureView;
+
+import java.nio.file.ClosedFileSystemException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -170,9 +174,12 @@ public class SimpleCameraManager {
         }
     }
 
-    public Color getCenterColorFromCamera() {
-        // Get instance of the device camera manager
-        CameraManager cameraManager = context.getSystemService(CameraManager.class);
+    public Color getCenterPixelColorFromTextureView(TextureView textureView) {
+        Bitmap bitmap = textureView.getBitmap();
+
+        int colorValue = bitmap.getPixel(bitmap.getWidth()/2, bitmap.getHeight()/2);
+
+        System.out.println("COLOR VALUE ----> " + colorValue);
 
         return new Color();
     }
