@@ -17,6 +17,7 @@
     <string name="palette_picker_indicator_actual_content_description">The color of the object that you\'re pointing the camera at.</string>
     <string name="palette_picker_indicator_reference_content_description">The color that you should match to your real Rubik\'s cube.</string>
     <string name="palette_picker_help">Place the color picker over your Rubick\'s cube squares to calibrate the camera. The selected square can be seen on the right hand side of the screen.</string>
+    <string name="palette_picker_hash_map">PalettePickerHashMap</string>
 
     <!-- Palette Confirmation Strings -->
     <string name="palette_confirmation_activity_title">Confirm Color Palette</string>

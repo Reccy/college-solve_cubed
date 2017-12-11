@@ -40,7 +40,7 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
     private LinkedHashMap<RubiksColor, FloatingActionButton> rubiksColorsToFabsHashMap;
 
     // Colors for the actual color
-    private LinkedHashMap<RubiksColor, Color> rubiksColorToRealColor;
+    private LinkedHashMap<RubiksColor, Integer> rubiksColorToRealColor;
 
     // The currently selected reference fab
     private FloatingActionButton selectedReferenceColorFAB;
@@ -85,12 +85,12 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
 
         // Instantiate Rubik's Color to real color
         rubiksColorToRealColor = new LinkedHashMap<>();
-        rubiksColorToRealColor.put(RubiksColor.RED, null);
-        rubiksColorToRealColor.put(RubiksColor.GREEN, null);
-        rubiksColorToRealColor.put(RubiksColor.BLUE, null);
-        rubiksColorToRealColor.put(RubiksColor.YELLOW, null);
-        rubiksColorToRealColor.put(RubiksColor.ORANGE, null);
-        rubiksColorToRealColor.put(RubiksColor.WHITE, null);
+        rubiksColorToRealColor.put(RubiksColor.RED, 0);
+        rubiksColorToRealColor.put(RubiksColor.GREEN, 0);
+        rubiksColorToRealColor.put(RubiksColor.BLUE, 0);
+        rubiksColorToRealColor.put(RubiksColor.YELLOW, 0);
+        rubiksColorToRealColor.put(RubiksColor.ORANGE, 0);
+        rubiksColorToRealColor.put(RubiksColor.WHITE, 0);
 
         // Setup onClickListener for each color FAB
         for(HashMap.Entry<RubiksColor, FloatingActionButton> entry : rubiksColorsToFabsHashMap.entrySet()) {
@@ -112,20 +112,20 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
                 rubiksColorToRealColor.put(selectedColor, simpleCameraManager.getCenterPixelColorFromTextureView(cameraTextureView));
 
                 // Find the next unset color and select it
-                for (HashMap.Entry<RubiksColor, Color> colorEntry : rubiksColorToRealColor.entrySet()) {
+                for (HashMap.Entry<RubiksColor, Integer> colorEntry : rubiksColorToRealColor.entrySet()) {
                     RubiksColor rubiksReferenceColor = colorEntry.getKey();
-                    Color rubiksActualColor = colorEntry.getValue();
+                    int rubiksActualColor = colorEntry.getValue();
 
                     System.out.println("CHECKING -----> " + rubiksReferenceColor + " || ACTUAL -----> " + rubiksActualColor);
 
-                    if (rubiksActualColor == null) {
+                    if (rubiksActualColor == 0) {
                         selectColorFab(rubiksColorsToFabsHashMap.get(rubiksReferenceColor));
                         return;
                     }
                 }
 
                 // If all colors have been set, go to the next activity
-                IntentUtilities.StartActivity(thisActivity, PaletteConfirmationActivity.class);
+                IntentUtilities.StartActivityWithLinkedHashMap(thisActivity, PaletteConfirmationActivity.class, getResources().getString(R.string.palette_picker_hash_map), rubiksColorToRealColor);
             }
         });
     }

@@ -3,6 +3,9 @@ package ie.aaronmeaney.utils;
 import android.app.Activity;
 import android.content.Intent;
 
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+
 /**
  * Provides convenience methods regarding Intent and Activity Management.
  */
@@ -16,6 +19,22 @@ public final class IntentUtilities {
      */
     public static Intent StartActivity(Activity thisActivity, Class newActivity) {
         Intent intent = new Intent(thisActivity, newActivity);
+        thisActivity.startActivity(intent);
+        return intent;
+    }
+
+    /**
+     * Creates a new intent for the newActivity and starts that activity.
+     * Allows objects to be passed to the new activity.
+     * @param thisActivity The activity the method is being called from.
+     * @param newActivity  The class of the activity to start.
+     * @param extraName The name of the serializable object that was passed
+     * @param extraLinkedHashMap The object to be passed
+     * @return The intent created for the newActivity.
+     */
+    public static Intent StartActivityWithLinkedHashMap(Activity thisActivity, Class newActivity, String extraName, LinkedHashMap extraLinkedHashMap) {
+        Intent intent = new Intent(thisActivity, newActivity);
+        intent.putExtra(extraName, extraLinkedHashMap);
         thisActivity.startActivity(intent);
         return intent;
     }

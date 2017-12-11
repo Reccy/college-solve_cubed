@@ -174,13 +174,8 @@ public class SimpleCameraManager {
         }
     }
 
-    public Color getCenterPixelColorFromTextureView(TextureView textureView) {
+    public int getCenterPixelColorFromTextureView(TextureView textureView) {
         Bitmap bitmap = textureView.getBitmap();
-
-        int colorValue = bitmap.getPixel(bitmap.getWidth()/2, bitmap.getHeight()/2);
-
-        System.out.println("COLOR VALUE ----> " + colorValue);
-
-        return new Color();
+        return bitmap.getPixel(bitmap.getWidth()/2, bitmap.getHeight()/2);
     }
 }
