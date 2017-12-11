@@ -1,5 +1,6 @@
 package ie.aaronmeaney.solvecubed;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
 import ie.aaronmeaney.utils.IntentUtilities;
@@ -34,10 +36,16 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
     private FloatingActionButton captureColorFAB;
 
     // FABs for the selected reference color
-    private HashMap<RubiksColor, FloatingActionButton> rubiksColorsToFabsHashMap;
+    private LinkedHashMap<RubiksColor, FloatingActionButton> rubiksColorsToFabsHashMap;
+
+    // Colors for the actual color
+    private LinkedHashMap<RubiksColor, Color> rubiksColorToRealColor;
+
+    // The currently selected reference fab
+    private FloatingActionButton selectedReferenceColorFAB;
 
     // The currently selected reference color
-    private FloatingActionButton selectedReferenceColorFAB;
+    private RubiksColor selectedColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +71,7 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
         simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
 
         // Assign Rubik's Color to each color FAB
-        rubiksColorsToFabsHashMap = new HashMap<>();
+        rubiksColorsToFabsHashMap = new LinkedHashMap<>();
         rubiksColorsToFabsHashMap.put(RubiksColor.RED, (FloatingActionButton) findViewById(R.id.palette_picker_fab_color_red));
         rubiksColorsToFabsHashMap.put(RubiksColor.GREEN, (FloatingActionButton) findViewById(R.id.palette_picker_fab_color_green));
         rubiksColorsToFabsHashMap.put(RubiksColor.BLUE, (FloatingActionButton) findViewById(R.id.palette_picker_fab_color_blue));
@@ -71,6 +79,15 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
         rubiksColorsToFabsHashMap.put(RubiksColor.ORANGE, (FloatingActionButton) findViewById(R.id.palette_picker_fab_color_orange));
         rubiksColorsToFabsHashMap.put(RubiksColor.WHITE, (FloatingActionButton) findViewById(R.id.palette_picker_fab_color_white));
         selectColorFab(rubiksColorsToFabsHashMap.get(RubiksColor.RED));
+
+        // Instantiate Rubik's Color to real color
+        rubiksColorToRealColor = new LinkedHashMap<>();
+        rubiksColorToRealColor.put(RubiksColor.RED, null);
+        rubiksColorToRealColor.put(RubiksColor.GREEN, null);
+        rubiksColorToRealColor.put(RubiksColor.BLUE, null);
+        rubiksColorToRealColor.put(RubiksColor.YELLOW, null);
+        rubiksColorToRealColor.put(RubiksColor.ORANGE, null);
+        rubiksColorToRealColor.put(RubiksColor.WHITE, null);
 
         // Setup onClickListener for each color FAB
         for(HashMap.Entry<RubiksColor, FloatingActionButton> entry : rubiksColorsToFabsHashMap.entrySet()) {
@@ -84,10 +101,27 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
             });
         }
 
-        // Setup onClickListener for the capture FAB
+        // Setup onClickListener for the capture FAB, goes to the next scene if the colors are selected
         captureColorFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Set the selected color
+                rubiksColorToRealColor.put(selectedColor, simpleCameraManager.getCenterColorFromCamera());
+
+                // Find the next unset color and select it
+                for (HashMap.Entry<RubiksColor, Color> colorEntry : rubiksColorToRealColor.entrySet()) {
+                    RubiksColor rubiksReferenceColor = colorEntry.getKey();
+                    Color rubiksActualColor = colorEntry.getValue();
+
+                    System.out.println("CHECKING -----> " + rubiksReferenceColor + " || ACTUAL -----> " + rubiksActualColor);
+
+                    if (rubiksActualColor == null) {
+                        selectColorFab(rubiksColorsToFabsHashMap.get(rubiksReferenceColor));
+                        return;
+                    }
+                }
+
+                // If all colors have been set, go to the next activity
                 IntentUtilities.StartActivity(thisActivity, PaletteConfirmationActivity.class);
             }
         });
@@ -109,7 +143,19 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity {
         FloatingActionButton oldFab = selectedReferenceColorFAB;
         selectedReferenceColorFAB = fab;
 
-        // TODO: Fix clipping from animation
+        // Set the selectedColor enum
+        for(HashMap.Entry<RubiksColor, FloatingActionButton> entry : rubiksColorsToFabsHashMap.entrySet()) {
+            final RubiksColor tempColor = entry.getKey();
+            final FloatingActionButton tempFab = entry.getValue();
+
+            if (fab.equals(tempFab)) {
+                selectedColor = tempColor;
+
+                System.out.println("SELECTED -----> " + selectedColor);
+                break;
+            }
+        }
+
         if (oldFab != null) {
             oldFab.animate().translationX(0f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(100);
             oldFab.animate().scaleX(1f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(100);

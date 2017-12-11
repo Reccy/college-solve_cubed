@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -167,5 +168,12 @@ public class SimpleCameraManager {
         catch (java.lang.NullPointerException|CameraAccessException e) {
             System.out.println("Exception: " + e);
         }
+    }
+
+    public Color getCenterColorFromCamera() {
+        // Get instance of the device camera manager
+        CameraManager cameraManager = context.getSystemService(CameraManager.class);
+
+        return new Color();
     }
 }
