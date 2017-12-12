@@ -30,7 +30,7 @@ public class PaletteConfirmationActivity extends SolveCubedAppCompatActivity {
     private ImageView whiteImage;
 
     // HashMap of chosen colours
-    private HashMap<RubiksColor, Integer> rubiksColorToRealColor;
+    private LinkedHashMap<RubiksColor, Integer> rubiksColorToRealColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class PaletteConfirmationActivity extends SolveCubedAppCompatActivity {
          */
 
         // Get the chosen colours
-        rubiksColorToRealColor = (HashMap<RubiksColor, Integer>)getIntent().getSerializableExtra(getResources().getString(R.string.palette_picker_hash_map));
+        rubiksColorToRealColor = IntentUtilities.GetExtraLinkedHashMap(getIntent(), getResources().getString(R.string.palette_picker_hash_map));
 
         // Get references to UI elements
         btnCancel = findViewById(R.id.palette_confirmation_btn_cancel);
@@ -79,6 +79,7 @@ public class PaletteConfirmationActivity extends SolveCubedAppCompatActivity {
             @Override
             public void onClick(View v) {
                 IntentUtilities.StartActivity(thisActivity, CubeInputActivity.class);
+                IntentUtilities.StartActivityWithLinkedHashMap(thisActivity, CubeInputActivity.class, getResources().getString(R.string.palette_picker_hash_map), rubiksColorToRealColor);
             }
         });
     }
