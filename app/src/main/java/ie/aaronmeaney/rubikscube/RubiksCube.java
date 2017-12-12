@@ -32,4 +32,19 @@ public class RubiksCube {
 
         return null;
     }
+
+    /**
+     * Returns the RubiksFace matching the color passed in.
+     * @param color The color of the face.
+     * @return The RubiksFace. Null if the face doesn't exist.
+     */
+    public RubiksFace getRubiksFace(RubiksColor color) {
+        for (RubiksFace face: rubiksFaceList) {
+            if (face.getFaceColor() == color) {
+                return face;
+            }
+        }
+
+        return null;
+    }
 }
