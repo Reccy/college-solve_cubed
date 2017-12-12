@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
+import ie.aaronmeaney.rubikscube.RubiksFace;
 import ie.aaronmeaney.utils.IntentUtilities;
 import ie.aaronmeaney.utils.SimpleCameraManager;
 
@@ -99,6 +100,43 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
         setIndicatorColor(indicatorBottomRight, RubiksColor.YELLOW);
         setRelativeFaceColor(relativeFaceLeft, RubiksColor.WHITE);
         setRelativeFaceColor(relativeFaceTop, RubiksColor.GREEN);
+
+        setFace(RubiksFace.RubiksFacePosition.RIGHT);
+    }
+
+    private void setFace(RubiksFace.RubiksFacePosition facePosition) {
+        switch (facePosition) {
+            case FRONT:     // WHITE
+                setIndicatorColor(indicatorCenter, RubiksColor.WHITE);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                break;
+            case LEFT:      // GREEN
+                setIndicatorColor(indicatorCenter, RubiksColor.GREEN);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.YELLOW);
+                break;
+            case RIGHT:     // BLUE
+                setIndicatorColor(indicatorCenter, RubiksColor.BLUE);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.WHITE);
+                break;
+            case BACK:      // YELLOW
+                setIndicatorColor(indicatorCenter, RubiksColor.YELLOW);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.BLUE);
+                break;
+            case TOP:       // ORANGE
+                setIndicatorColor(indicatorCenter, RubiksColor.ORANGE);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.YELLOW);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                break;
+            case BOTTOM:    // RED
+                setIndicatorColor(indicatorCenter, RubiksColor.RED);
+                setRelativeFaceColor(relativeFaceTop, RubiksColor.WHITE);
+                setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                break;
+        }
     }
 
     @Override

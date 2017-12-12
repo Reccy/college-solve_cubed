@@ -15,7 +15,6 @@
         android:clipChildren="false"
         android:clipToPadding="false">
 
-        <!-- TODO: Fix FAB shadow clipping -->
         <android.support.design.widget.FloatingActionButton
             style="@style/StandardTheme.FloatingActionButton"
             android:id="@+id/cube_input_fab_capture_cube_face"
