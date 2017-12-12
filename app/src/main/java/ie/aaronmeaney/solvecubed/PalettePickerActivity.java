@@ -24,6 +24,9 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
     // Output TextureView for the camera
     private TextureView cameraTextureView;
 
+    // The surface texture
+    private SurfaceTexture surfaceTexture;
+
     // Wrapper for camera2 API
     private SimpleCameraManager simpleCameraManager;
 
@@ -140,10 +143,16 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
         rubiksColorToRealColor.put(RubiksColor.ORANGE, 0);
         rubiksColorToRealColor.put(RubiksColor.WHITE, 0);
         selectColorFab(rubiksColorsToFabsHashMap.get(RubiksColor.RED));
+
+        if (surfaceTexture != null) {
+            simpleCameraManager.streamCameraToTexture(backCameraId, new Surface(surfaceTexture));
+        }
     }
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
+
+        this.surfaceTexture = surfaceTexture;
 
         // Make Camera render to the SurfaceView
         simpleCameraManager.streamCameraToTexture(backCameraId, new Surface(surfaceTexture));
@@ -158,7 +167,9 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
     }
 
     @Override
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {}
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        this.surfaceTexture = surfaceTexture;
+    }
 
     /**
      * Selects the Rubik's fab as the new reference color and runs an animation to display this to the user.
