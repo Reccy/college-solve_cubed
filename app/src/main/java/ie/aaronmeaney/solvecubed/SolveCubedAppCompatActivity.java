@@ -50,6 +50,13 @@ public abstract class SolveCubedAppCompatActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        speechEngine.shutdown();
+    }
+
     /**
      *  Setup the ActionBar menu buttons
      */
