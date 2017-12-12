@@ -133,6 +133,13 @@ public class PalettePickerActivity extends SolveCubedAppCompatActivity implement
     @Override
     protected void onResume() {
         super.onResume();
+        rubiksColorToRealColor.put(RubiksColor.RED, 0);
+        rubiksColorToRealColor.put(RubiksColor.GREEN, 0);
+        rubiksColorToRealColor.put(RubiksColor.BLUE, 0);
+        rubiksColorToRealColor.put(RubiksColor.YELLOW, 0);
+        rubiksColorToRealColor.put(RubiksColor.ORANGE, 0);
+        rubiksColorToRealColor.put(RubiksColor.WHITE, 0);
+        selectColorFab(rubiksColorsToFabsHashMap.get(RubiksColor.RED));
     }
 
     @Override
