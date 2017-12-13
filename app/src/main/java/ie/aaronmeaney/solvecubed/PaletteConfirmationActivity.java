@@ -78,7 +78,6 @@ public class PaletteConfirmationActivity extends SolveCubedAppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IntentUtilities.StartActivity(thisActivity, CubeInputActivity.class);
                 IntentUtilities.StartActivityWithLinkedHashMap(thisActivity, CubeInputActivity.class, getResources().getString(R.string.palette_picker_hash_map), rubiksColorToRealColor);
             }
         });

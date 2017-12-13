@@ -1,11 +1,14 @@
 package ie.aaronmeaney.solvecubed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.util.LinkedHashMap;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
 import ie.aaronmeaney.rubikscube.RubiksFace;
@@ -44,11 +47,17 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
     // FAB to capture the cube face configuration the camera is looking at
     private FloatingActionButton captureCubeFaceFAB;
 
+    // The color mappings set by the color palette picker
+    private LinkedHashMap<RubiksColor, Integer> colorPalette;
+
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
 
         setHelpDialogue(getResources().getString(R.string.cube_input_help));
+
+        // Setup the color palette
+        colorPalette = IntentUtilities.GetExtraLinkedHashMap(getIntent(), getResources().getString(R.string.palette_picker_hash_map));
 
         // Inflate the view
         setContentView(R.layout.activity_cube_input);
@@ -153,35 +162,9 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
      * @param color Color to change the indicator to
      */
     private void setIndicatorColor(ImageView indicator, RubiksColor color) {
-        int newColor;
-
-        // Set the newColor resource based on the RubiksColor enum.
-        switch (color) {
-            case RED:
-                newColor = R.color.rubiks_red;
-                break;
-            case GREEN:
-                newColor = R.color.rubiks_green;
-                break;
-            case BLUE:
-                newColor = R.color.rubiks_blue;
-                break;
-            case YELLOW:
-                newColor = R.color.rubiks_yellow;
-                break;
-            case ORANGE:
-                newColor = R.color.rubiks_orange;
-                break;
-            case WHITE:
-                newColor = R.color.rubiks_white;
-                break;
-            default:
-                newColor = R.color.rubiks_red;
-                break;
-        }
 
         // Set indicator color to newColor
-        indicator.setBackgroundColor(ContextCompat.getColor(thisActivity, newColor));
+        indicator.setBackgroundColor(colorPalette.get(color));
     }
 
     /**
@@ -190,34 +173,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
      * @param color The color to change the relative face to
      */
     private void setRelativeFaceColor(ImageView face, RubiksColor color) {
-        int newColor;
-
-        // Set the newColor resource based on the RubiksColor enum.
-        switch (color) {
-            case RED:
-                newColor = R.color.rubiks_red;
-                break;
-            case GREEN:
-                newColor = R.color.rubiks_green;
-                break;
-            case BLUE:
-                newColor = R.color.rubiks_blue;
-                break;
-            case YELLOW:
-                newColor = R.color.rubiks_yellow;
-                break;
-            case ORANGE:
-                newColor = R.color.rubiks_orange;
-                break;
-            case WHITE:
-                newColor = R.color.rubiks_white;
-                break;
-            default:
-                newColor = R.color.rubiks_red;
-                break;
-        }
-
         // Set indicator color to newColor
-        face.setColorFilter(ContextCompat.getColor(thisActivity, newColor));
+        face.setColorFilter(colorPalette.get(color));
     }
 }
