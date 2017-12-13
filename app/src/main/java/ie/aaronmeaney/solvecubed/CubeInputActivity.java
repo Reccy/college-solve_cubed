@@ -1,10 +1,13 @@
 package ie.aaronmeaney.solvecubed;
 
 import android.content.Intent;
+import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.view.Surface;
 import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,10 +21,13 @@ import ie.aaronmeaney.utils.SimpleCameraManager;
 /**
  * Creates a representation of a Rubik's cube based on the input from the user's camera.
  */
-public class CubeInputActivity extends SolveCubedAppCompatActivity {
+public class CubeInputActivity extends SolveCubedAppCompatActivity implements TextureView.SurfaceTextureListener {
 
     // Output SurfaceView for the camera
-    private SurfaceView cameraSurfaceView;
+    private TextureView cameraTextureView;
+
+    // Surface Texture for the camera
+    private SurfaceTexture surfaceTexture;
 
     // Wrapper for camera2 API
     private SimpleCameraManager simpleCameraManager;
@@ -67,7 +73,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
          */
 
         // Get references to UI elements
-        cameraSurfaceView = findViewById(R.id.cube_input_surface_view_camera);
+        cameraTextureView = findViewById(R.id.cube_input_texture_view_camera);
 
         indicatorTopLeft = findViewById(R.id.cube_input_indicator_top_left);
         indicatorTop = findViewById(R.id.cube_input_indicator_top);
@@ -84,10 +90,10 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
 
         captureCubeFaceFAB = findViewById(R.id.cube_input_fab_capture_cube_face);
 
-        // Make Camera render to the SurfaceView
+        // Setup SimpleCameraManager
         simpleCameraManager = new SimpleCameraManager(this);
         backCameraId = simpleCameraManager.getBackCameraId();
-        simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
+        cameraTextureView.setSurfaceTextureListener(this);
 
         // Setup onClickListener for the capture FAB
         captureCubeFaceFAB.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +159,31 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity {
         super.onResume();
 
         // Make Camera render to the SurfaceView
-        simpleCameraManager.streamCameraToTexture(backCameraId, cameraSurfaceView.getHolder().getSurface());
+        if (surfaceTexture != null) {
+            simpleCameraManager.streamCameraToTexture(backCameraId, new Surface(surfaceTexture));
+        }
+    }
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
+
+        this.surfaceTexture = surfaceTexture;
+
+        // Make Camera render to the SurfaceView
+        simpleCameraManager.streamCameraToTexture(backCameraId, new Surface(surfaceTexture));
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i1) {}
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        return false;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        this.surfaceTexture = surfaceTexture;
     }
 
     /**
