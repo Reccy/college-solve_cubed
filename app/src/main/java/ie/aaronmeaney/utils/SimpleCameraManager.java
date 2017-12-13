@@ -178,4 +178,10 @@ public class SimpleCameraManager {
         Bitmap bitmap = textureView.getBitmap();
         return bitmap.getPixel(bitmap.getWidth()/2, bitmap.getHeight()/2);
     }
+
+    public int getPixelFromTextureView(TextureView textureView, int x, int y) {
+        Bitmap bitmap = textureView.getBitmap();
+
+        return bitmap.getPixel(x, y);
+    }
 }

@@ -5,13 +5,17 @@ import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
+import android.util.Pair;
 import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.LinkedHashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
 import ie.aaronmeaney.rubikscube.RubiksFace;
@@ -35,6 +39,9 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
     // ID of the back camera
     private String backCameraId;
 
+    // Parent object for indicators
+    private LinearLayout cubeInputGrid;
+
     // Indicators for the detected Rubik's Colors
     private ImageView indicatorTopLeft;
     private ImageView indicatorTop;
@@ -52,6 +59,17 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
     // FAB to capture the cube face configuration the camera is looking at
     private FloatingActionButton captureCubeFaceFAB;
+
+    // Screen Space co-ordinates for the Rubik's Cube face squares
+    private Pair<Integer, Integer> coordTopLeft;
+    private Pair<Integer, Integer> coordTop;
+    private Pair<Integer, Integer> coordTopRight;
+    private Pair<Integer, Integer> coordLeft;
+    private Pair<Integer, Integer> coordCenter;
+    private Pair<Integer, Integer> coordRight;
+    private Pair<Integer, Integer> coordBottomLeft;
+    private Pair<Integer, Integer> coordBottom;
+    private Pair<Integer, Integer> coordBottomRight;
 
     // The color mappings set by the color palette picker
     private LinkedHashMap<RubiksColor, Integer> colorPalette;
@@ -74,6 +92,8 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
         // Get references to UI elements
         cameraTextureView = findViewById(R.id.cube_input_texture_view_camera);
+
+        cubeInputGrid = findViewById(R.id.cube_input_grid);
 
         indicatorTopLeft = findViewById(R.id.cube_input_indicator_top_left);
         indicatorTop = findViewById(R.id.cube_input_indicator_top);
@@ -103,20 +123,49 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
             }
         });
 
-        // TEMP: Colors only used for demonstration purposes
-        setIndicatorColor(indicatorTopLeft, RubiksColor.ORANGE);
-        setIndicatorColor(indicatorTop, RubiksColor.GREEN);
-        setIndicatorColor(indicatorTopRight, RubiksColor.YELLOW);
-        setIndicatorColor(indicatorLeft, RubiksColor.ORANGE);
-        setIndicatorColor(indicatorCenter, RubiksColor.ORANGE);
-        setIndicatorColor(indicatorRight, RubiksColor.BLUE);
-        setIndicatorColor(indicatorBottomLeft, RubiksColor.ORANGE);
-        setIndicatorColor(indicatorBottom, RubiksColor.WHITE);
-        setIndicatorColor(indicatorBottomRight, RubiksColor.YELLOW);
-        setRelativeFaceColor(relativeFaceLeft, RubiksColor.WHITE);
-        setRelativeFaceColor(relativeFaceTop, RubiksColor.GREEN);
+        // Initialize colors to RED, will change on setFace call
+        setIndicatorColor(indicatorTopLeft, RubiksColor.RED);
+        setIndicatorColor(indicatorTop, RubiksColor.RED);
+        setIndicatorColor(indicatorTopRight, RubiksColor.RED);
+        setIndicatorColor(indicatorLeft, RubiksColor.RED);
+        setIndicatorColor(indicatorCenter, RubiksColor.RED);
+        setIndicatorColor(indicatorRight, RubiksColor.RED);
+        setIndicatorColor(indicatorBottomLeft, RubiksColor.RED);
+        setIndicatorColor(indicatorBottom, RubiksColor.RED);
+        setIndicatorColor(indicatorBottomRight, RubiksColor.RED);
+        setRelativeFaceColor(relativeFaceLeft, RubiksColor.RED);
+        setRelativeFaceColor(relativeFaceTop, RubiksColor.RED);
 
         setFace(RubiksFace.RubiksFacePosition.RIGHT);
+
+        // Set the coordinate values for the squares
+        Pair<Integer, Integer> cubeInputGridCenter;
+
+        int cubeInputGridWidth = cubeInputGrid.getWidth();
+        int cubeInputGridHalf = cubeInputGridWidth/2;
+        int cubeInputGridThird = cubeInputGridHalf/3;
+
+        int[] cubeInputGridAnchor = new int[2];
+        cubeInputGrid.getLocationOnScreen(cubeInputGridAnchor);
+
+        cubeInputGridCenter = new Pair<>(cubeInputGridAnchor[0] + cubeInputGridHalf, cubeInputGridAnchor[1] + cubeInputGridHalf);
+
+        coordTopLeft = new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second - cubeInputGridThird);
+
+        // Begin running the UI updater every X seconds
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                readRubiksCube();
+            }
+        }, 0, 200);//put here time 1000 milliseconds=1 second
+    }
+
+    /**
+     * Reads the Rubik's cube colors and updates the data model.
+     */
+    private void readRubiksCube() {
+        System.out.println("TLC: " + coordTopLeft.first + " -- " + coordTopLeft.second);
     }
 
     private void setFace(RubiksFace.RubiksFacePosition facePosition) {
