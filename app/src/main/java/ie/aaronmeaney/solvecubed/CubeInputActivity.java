@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Pair;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -150,14 +151,15 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         super.onWindowFocusChanged(hasFocus);
 
         // Set the coordinate values for the squares
-        Pair<Integer, Integer> cubeInputGridCenter;
+        final Pair<Integer, Integer> cubeInputGridCenter;
 
         int cubeInputGridWidth = cubeInputGrid.getWidth();
         int cubeInputGridHalf = cubeInputGridWidth/2;
         int cubeInputGridThird = cubeInputGridWidth/3;
 
-        int[] cubeInputGridAnchor = new int[2];
+        final int[] cubeInputGridAnchor = new int[2];
         cubeInputGrid.getLocationOnScreen(cubeInputGridAnchor);
+        cubeInputGridAnchor[1] = cubeInputGridAnchor[1] - 320; // HACK: This is offset by 320 for some reason and I need to fix it
 
         cubeInputGridCenter = new Pair<>(cubeInputGridAnchor[0] + cubeInputGridHalf, cubeInputGridAnchor[1] + cubeInputGridHalf);
 
@@ -182,7 +184,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         };
 
         readTimer = new Timer();
-        readTimer.schedule(timerTask, 200, 200);
+        readTimer.schedule(timerTask, 500, 500);
     }
 
     /**
