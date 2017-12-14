@@ -161,17 +161,17 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
         cubeInputGridCenter = new Pair<>(cubeInputGridAnchor[0] + cubeInputGridHalf, cubeInputGridAnchor[1] + cubeInputGridHalf);
 
-        coordTopLeft =      new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second - cubeInputGridThird);
-        coordTop =          new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second - cubeInputGridThird);
-        coordTopRight =     new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second - cubeInputGridThird);
+        coordTopLeft = new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second - cubeInputGridThird);
+        coordTop = new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second - cubeInputGridThird);
+        coordTopRight = new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second - cubeInputGridThird);
 
-        coordLeft =         new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second);
-        coordCenter =       new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second);
-        coordRight =        new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second);
+        coordLeft = new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second);
+        coordCenter = new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second);
+        coordRight = new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second);
 
-        coordBottomLeft =   new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second + cubeInputGridThird);
-        coordBottom =       new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second + cubeInputGridThird);
-        coordBottomRight =  new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second + cubeInputGridThird);
+        coordBottomLeft = new Pair<>(cubeInputGridCenter.first - cubeInputGridThird, cubeInputGridCenter.second + cubeInputGridThird);
+        coordBottom = new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second + cubeInputGridThird);
+        coordBottomRight = new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second + cubeInputGridThird);
 
         // Update the indicator UI in the background
         TimerTask timerTask = new TimerTask() {
