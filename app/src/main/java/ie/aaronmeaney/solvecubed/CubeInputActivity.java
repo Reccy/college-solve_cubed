@@ -2,6 +2,7 @@ package ie.aaronmeaney.solvecubed;
 
 import android.graphics.Color;
 import android.graphics.SurfaceTexture;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -12,8 +13,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -74,9 +77,8 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
     // The color mappings set by the color palette picker
     private LinkedHashMap<RubiksColor, Integer> colorPalette;
 
-    // Async task for reading the Rubik's Cube face
-    private Handler readHandler;
-    private Runnable readRunnable;
+    // Timer to schedule indicator UI updates
+    private Timer readTimer;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -171,32 +173,49 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         coordBottom =       new Pair<>(cubeInputGridCenter.first, cubeInputGridCenter.second + cubeInputGridThird);
         coordBottomRight =  new Pair<>(cubeInputGridCenter.first + cubeInputGridThird, cubeInputGridCenter.second + cubeInputGridThird);
 
-        // Begin running the UI updater every X seconds
-        readRunnable = new Runnable() {
+        // Update the indicator UI in the background
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                readRubiksCube();
-
-                readHandler.postDelayed(this, 200);
+                new ReadRubiksCube().execute();
             }
         };
 
-        readHandler = new Handler();
-        readHandler.postDelayed(readRunnable, 200);
+        readTimer = new Timer();
+        readTimer.schedule(timerTask, 200, 200);
     }
 
     /**
      * Reads the Rubik's cube colors and updates the data model.
      */
-    private void readRubiksCube() {
-        setIndicatorColor(indicatorTopLeft, getClosestRubiksColorAtPoint(coordTopLeft));
-        setIndicatorColor(indicatorTop, getClosestRubiksColorAtPoint(coordTop));
-        setIndicatorColor(indicatorTopRight, getClosestRubiksColorAtPoint(coordTopRight));
-        setIndicatorColor(indicatorLeft, getClosestRubiksColorAtPoint(coordLeft));
-        setIndicatorColor(indicatorRight, getClosestRubiksColorAtPoint(coordRight));
-        setIndicatorColor(indicatorBottomLeft, getClosestRubiksColorAtPoint(coordBottomLeft));
-        setIndicatorColor(indicatorBottom, getClosestRubiksColorAtPoint(coordBottom));
-        setIndicatorColor(indicatorBottomRight, getClosestRubiksColorAtPoint(coordBottomRight));
+    private class ReadRubiksCube extends AsyncTask<Void, Void, List<RubiksColor>> {
+        @Override
+        protected List<RubiksColor> doInBackground(Void... voids) {
+            List<RubiksColor> rubiksColors = new ArrayList<>();
+
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordTopLeft));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordTop));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordTopRight));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordLeft));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordRight));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordBottomLeft));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordBottom));
+            rubiksColors.add(getClosestRubiksColorAtPoint(coordBottomRight));
+
+            return rubiksColors;
+        }
+
+        @Override
+        protected void onPostExecute(List<RubiksColor> rubiksColors) {
+            setIndicatorColor(indicatorTopLeft, rubiksColors.get(0));
+            setIndicatorColor(indicatorTop, rubiksColors.get(1));
+            setIndicatorColor(indicatorTopRight, rubiksColors.get(2));
+            setIndicatorColor(indicatorLeft, rubiksColors.get(3));
+            setIndicatorColor(indicatorRight, rubiksColors.get(4));
+            setIndicatorColor(indicatorBottomLeft, rubiksColors.get(5));
+            setIndicatorColor(indicatorBottom, rubiksColors.get(6));
+            setIndicatorColor(indicatorBottomRight, rubiksColors.get(7));
+        }
     }
 
     private void setFace(RubiksFace.RubiksFacePosition facePosition) {
@@ -248,7 +267,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
     protected void onDestroy() {
         super.onDestroy();
 
-        readHandler.removeCallbacks(readRunnable);
+        readTimer.cancel();
     }
 
     @Override
