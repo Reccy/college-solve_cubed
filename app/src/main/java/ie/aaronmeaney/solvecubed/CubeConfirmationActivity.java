@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import ie.aaronmeaney.rubikscube.RubiksCube;
 import ie.aaronmeaney.utils.IntentUtilities;
 
 /**
@@ -14,6 +15,9 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
     // Buttons
     private Button btnCancel;
     private Button btnConfirm;
+
+    // Rubik's Cube
+    private RubiksCube rubiksCube;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -32,6 +36,10 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
         btnCancel = findViewById(R.id.cube_confirmation_btn_cancel);
         btnConfirm = findViewById(R.id.cube_confirmation_btn_confirm);
 
+        // Update the cube colours
+        rubiksCube = IntentUtilities.GetExtraRubiksCube(getIntent(), getResources().getString(R.string.cube_input_cube_data));
+        updateCubeRender(rubiksCube);
+
         // Setup button onClick listeners
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,5 +54,13 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
                 IntentUtilities.StartActivity(thisActivity, CubeSolverActivity.class);
             }
         });
+    }
+
+    /**
+     * Updates the rendering of the Rubik's Cube view
+     * @param cube The Rubik's Cube to copy the color values from
+     */
+    private void updateCubeRender(RubiksCube cube) {
+
     }
 }

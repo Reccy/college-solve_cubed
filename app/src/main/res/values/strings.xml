@@ -26,6 +26,7 @@
     <!-- Cube Input Strings -->
     <string name="cube_input_activity_title">Configure Cube</string>
     <string name="cube_input_help">Place your Rubick\'s cube in the grid and press the capture button to configure the Rubick\'s cube.</string>
+    <string name="cube_input_cube_data">RubiksCubeStoredData</string>
 
     <!-- Cube Confirmation Strings -->
     <string name="cube_confirmation_activity_title">Confirm Cube Configuration</string>

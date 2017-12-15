@@ -79,6 +79,12 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
     // The color mappings set by the color palette picker
     private LinkedHashMap<RubiksColor, Integer> colorPalette;
 
+    // Data representation of Rubik's Cube
+    private RubiksCube rubiksCube;
+
+    // Currently displayed Rubik's Cube face
+    private RubiksColor currentFaceColor;
+
     // Timer to schedule indicator UI updates
     private Timer readTimer;
 
@@ -90,6 +96,9 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
         // Setup the color palette
         colorPalette = IntentUtilities.GetExtraLinkedHashMap(getIntent(), getResources().getString(R.string.palette_picker_hash_map));
+
+        // Init Rubik's Cube
+        rubiksCube = new RubiksCube();
 
         // Inflate the view
         setContentView(R.layout.activity_cube_input);
@@ -123,14 +132,6 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         backCameraId = simpleCameraManager.getBackCameraId();
         cameraTextureView.setSurfaceTextureListener(this);
 
-        // Setup onClickListener for the capture FAB
-        captureCubeFaceFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                IntentUtilities.StartActivity(thisActivity, CubeConfirmationActivity.class);
-            }
-        });
-
         // Initialize colors to RED, will change on setFace call
         setIndicatorColor(indicatorTopLeft, RubiksColor.RED);
         setIndicatorColor(indicatorTop, RubiksColor.RED);
@@ -145,6 +146,39 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         setRelativeFaceColor(relativeFaceTop, RubiksColor.RED);
 
         setFace(RubiksFace.RubiksFacePosition.RIGHT);
+
+        // Setup onClickListener for the capture FAB
+        captureCubeFaceFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (currentFaceColor) {
+                    case BLUE:
+                        saveCubeReadings(RubiksColor.BLUE);
+                        setFace(RubiksFace.RubiksFacePosition.BACK);
+                        break;
+                    case YELLOW:
+                        saveCubeReadings(RubiksColor.YELLOW);
+                        setFace(RubiksFace.RubiksFacePosition.LEFT);
+                        break;
+                    case GREEN:
+                        saveCubeReadings(RubiksColor.GREEN);
+                        setFace(RubiksFace.RubiksFacePosition.FRONT);
+                        break;
+                    case WHITE:
+                        saveCubeReadings(RubiksColor.WHITE);
+                        setFace(RubiksFace.RubiksFacePosition.TOP);
+                        break;
+                    case ORANGE:
+                        saveCubeReadings(RubiksColor.ORANGE);
+                        setFace(RubiksFace.RubiksFacePosition.BOTTOM);
+                        break;
+                    case RED:
+                        saveCubeReadings(RubiksColor.RED);
+                        IntentUtilities.StartActivityWithRubiksCube(thisActivity, CubeConfirmationActivity.class, getResources().getString(R.string.cube_input_cube_data), rubiksCube);
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -188,6 +222,8 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         readTimer.schedule(timerTask, 100, 100);
     }
 
+
+
     /**
      * Reads the Rubik's cube colors and updates the data model.
      */
@@ -221,44 +257,74 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         }
     }
 
+    /**
+     * Set the current face that the app is reading from.
+     * @param facePosition The absolute position of the face.
+     */
     private void setFace(RubiksFace.RubiksFacePosition facePosition) {
         switch (facePosition) {
             case FRONT:     // WHITE
                 setIndicatorColor(indicatorCenter, RubiksColor.WHITE);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                currentFaceColor = RubiksColor.WHITE;
                 break;
             case LEFT:      // GREEN
                 setIndicatorColor(indicatorCenter, RubiksColor.GREEN);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.YELLOW);
+                currentFaceColor = RubiksColor.GREEN;
                 break;
             case RIGHT:     // BLUE
                 setIndicatorColor(indicatorCenter, RubiksColor.BLUE);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.WHITE);
+                currentFaceColor = RubiksColor.BLUE;
                 break;
             case BACK:      // YELLOW
                 setIndicatorColor(indicatorCenter, RubiksColor.YELLOW);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.BLUE);
+                currentFaceColor = RubiksColor.YELLOW;
                 break;
             case TOP:       // ORANGE
                 setIndicatorColor(indicatorCenter, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.YELLOW);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                currentFaceColor = RubiksColor.ORANGE;
                 break;
             case BOTTOM:    // RED
                 setIndicatorColor(indicatorCenter, RubiksColor.RED);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.WHITE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
+                currentFaceColor = RubiksColor.RED;
                 break;
         }
+    }
+
+    /**
+     * Saves the current read configuration of the cube face to the Rubik's Cube object.
+     * @param color The color of the current face to save to.
+     */
+    private void saveCubeReadings(RubiksColor color) {
+        RubiksFace face = rubiksCube.getRubiksFace(color);
+
+        face.setSquare(getIndicatorColor(indicatorTopLeft),     1,1);       // TOP LEFT
+        face.setSquare(getIndicatorColor(indicatorTop),         2,1);       // TOP CENTER
+        face.setSquare(getIndicatorColor(indicatorTopRight),    3,1);       // TOP RIGHT
+        face.setSquare(getIndicatorColor(indicatorLeft),        1,2);       // CENTER LEFT
+        face.setSquare(getIndicatorColor(indicatorRight),       3,2);       // CENTER RIGHT
+        face.setSquare(getIndicatorColor(indicatorBottomLeft),  1,3);       // BOTTOM LEFT
+        face.setSquare(getIndicatorColor(indicatorBottom),      2,3);       // BOTTOM CENTER
+        face.setSquare(getIndicatorColor(indicatorRight),       3,3);       // BOTTOM RIGHT
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Reset current face
+        setFace(RubiksFace.RubiksFacePosition.RIGHT);
 
         // Make Camera render to the SurfaceView
         if (surfaceTexture != null) {
@@ -304,6 +370,29 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
         // Set indicator color to newColor
         indicator.setBackgroundColor(colorPalette.get(color));
+    }
+
+    /**
+     * Returns the indicator's closest Rubik's Cube color
+     * @param indicator Indicator to get the color of
+     * @return
+     */
+    private RubiksColor getIndicatorColor(ImageView indicator) {
+        int actualColor = indicator.getSolidColor();
+
+        RubiksColor closestRubiksColor = RubiksColor.RED;
+        int closestDistance = Integer.MAX_VALUE;
+
+        for (HashMap.Entry<RubiksColor, Integer> entry : colorPalette.entrySet()) {
+            int distance = getColorDifference(entry.getValue(), actualColor);
+
+            if (distance < closestDistance) {
+                closestRubiksColor = entry.getKey();
+                closestDistance = distance;
+            }
+        }
+
+        return closestRubiksColor;
     }
 
     /**

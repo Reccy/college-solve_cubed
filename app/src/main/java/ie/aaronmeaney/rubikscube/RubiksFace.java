@@ -1,9 +1,11 @@
 package ie.aaronmeaney.rubikscube;
 
+import java.io.Serializable;
+
 /**
  * Data represenatation of a single Rubik's cube face
  */
-public class RubiksFace {
+public class RubiksFace implements Serializable {
 
     public enum RubiksFacePosition {
         FRONT,

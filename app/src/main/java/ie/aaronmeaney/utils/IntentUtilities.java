@@ -6,6 +6,8 @@ import android.content.Intent;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 
+import ie.aaronmeaney.rubikscube.RubiksCube;
+
 /**
  * Provides convenience methods regarding Intent and Activity Management.
  */
@@ -61,5 +63,17 @@ public final class IntentUtilities {
     public static <T,E> LinkedHashMap<T,E> GetExtraLinkedHashMap(Intent intent, String extraName) {
         LinkedHashMapSerializable lhm = (LinkedHashMapSerializable)intent.getExtras().getSerializable(extraName);
         return lhm.get();
+    }
+
+    public static Intent StartActivityWithRubiksCube(Activity thisActivity, Class newActivity, String extraName, RubiksCube rubiksCube) {
+        Intent intent = new Intent(thisActivity, newActivity);
+        intent.putExtra(extraName, rubiksCube);
+        thisActivity.startActivity(intent);
+        return intent;
+    }
+
+    public static RubiksCube GetExtraRubiksCube(Intent intent, String extraName) {
+        RubiksCube rc = (RubiksCube)intent.getExtras().getSerializable(extraName);
+        return rc;
     }
 }

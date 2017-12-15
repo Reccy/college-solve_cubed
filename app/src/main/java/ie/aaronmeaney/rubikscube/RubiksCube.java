@@ -1,15 +1,19 @@
 package ie.aaronmeaney.rubikscube;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Data representation of a Rubik's Cube
  */
-public class RubiksCube {
+public class RubiksCube implements Serializable {
 
     private List<RubiksFace> rubiksFaceList;
 
     public RubiksCube() {
+        rubiksFaceList = new ArrayList<>();
+
         rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.FRONT));    // WHITE
         rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BACK));     // YELLOW
         rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.LEFT));     // GREEN
