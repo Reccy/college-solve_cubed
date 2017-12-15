@@ -22,6 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ie.aaronmeaney.rubikscube.RubiksColor;
+import ie.aaronmeaney.rubikscube.RubiksCube;
 import ie.aaronmeaney.rubikscube.RubiksFace;
 import ie.aaronmeaney.utils.IntentUtilities;
 import ie.aaronmeaney.utils.SimpleCameraManager;
@@ -184,7 +185,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         };
 
         readTimer = new Timer();
-        readTimer.schedule(timerTask, 500, 500);
+        readTimer.schedule(timerTask, 100, 100);
     }
 
     /**
@@ -346,6 +347,6 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
      * @return The difference as an int, between the two colors
      */
     private int getColorDifference(int a, int b) {
-        return Math.abs(Color.red(a) - Color.red(b)) + Math.abs(Color.green(a) - Color.green(b)) + Math.abs(Color.blue(b) - Color.blue(b));
+        return (int)Math.sqrt(Math.pow(Color.red(a) - Color.red(b), 2) + Math.pow(Color.green(a) - Color.green(b), 2) + Math.pow(Color.blue(a) - Color.blue(b), 2));
     }
 }
