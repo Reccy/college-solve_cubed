@@ -341,7 +341,7 @@
 
         <!-- Cube Face -->
         <LinearLayout
-            android:id="@+id/cube_confirmation_layout_face_forward"
+            android:id="@+id/cube_confirmation_layout_face_front"
             android:layout_below="@id/cube_confirmation_layout_face_top"
             android:layout_toRightOf="@id/cube_confirmation_layout_face_left"
             android:orientation="vertical"
@@ -354,21 +354,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_1_1"
+                    android:id="@+id/cube_confirmation_side_front_1_1"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_blue"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_1_2"
+                    android:id="@+id/cube_confirmation_side_front_1_2"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_green"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_1_3"
+                    android:id="@+id/cube_confirmation_side_front_1_3"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
@@ -380,21 +380,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_2_1"
+                    android:id="@+id/cube_confirmation_side_front_2_1"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_white"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_2_2"
+                    android:id="@+id/cube_confirmation_side_front_2_2"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_white"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_2_3"
+                    android:id="@+id/cube_confirmation_side_front_2_3"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
@@ -406,21 +406,21 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_3_1"
+                    android:id="@+id/cube_confirmation_side_front_3_1"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_white"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_3_2"
+                    android:id="@+id/cube_confirmation_side_front_3_2"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
                     android:tint="@color/rubiks_green"/>
 
                 <ImageView
-                    android:id="@+id/cube_confirmation_side_forward_3_3"
+                    android:id="@+id/cube_confirmation_side_front_3_3"
                     android:layout_width="@dimen/cube_confirmation_grid_square_width"
                     android:layout_height="@dimen/cube_confirmation_grid_square_width"
                     android:src="@drawable/shape_square_full"
@@ -432,7 +432,7 @@
         <LinearLayout
             android:id="@+id/cube_confirmation_layout_face_right"
             android:layout_below="@id/cube_confirmation_layout_face_top"
-            android:layout_toRightOf="@id/cube_confirmation_layout_face_forward"
+            android:layout_toRightOf="@id/cube_confirmation_layout_face_front"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

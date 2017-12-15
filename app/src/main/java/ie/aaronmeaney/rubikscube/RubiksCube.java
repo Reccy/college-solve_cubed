@@ -23,6 +23,14 @@ public class RubiksCube implements Serializable {
     }
 
     /**
+     * Gets the rubiksFaceList.
+     * @return The rubiksFaceList.
+     */
+    public List<RubiksFace> getAllFaces() {
+        return rubiksFaceList;
+    }
+
+    /**
      * Returns the RubiksFace at the position passed in.
      * @param position The position of the face.
      * @return The RubiksFace. Null if the face doesn't exist.

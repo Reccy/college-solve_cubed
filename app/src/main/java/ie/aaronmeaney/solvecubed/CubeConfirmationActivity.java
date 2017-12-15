@@ -3,8 +3,10 @@ package ie.aaronmeaney.solvecubed;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import ie.aaronmeaney.rubikscube.RubiksCube;
+import ie.aaronmeaney.rubikscube.RubiksFace;
 import ie.aaronmeaney.utils.IntentUtilities;
 
 /**
@@ -18,6 +20,9 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
 
     // Rubik's Cube
     private RubiksCube rubiksCube;
+
+    // UI Elements
+
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -61,6 +66,24 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
      * @param cube The Rubik's Cube to copy the color values from
      */
     private void updateCubeRender(RubiksCube cube) {
+
+        for (RubiksFace face : cube.getAllFaces()) {
+            switch (face.getFacePosition()) {
+                case RIGHT:
+
+                    break;
+                case BACK:
+                    break;
+                case LEFT:
+                    break;
+                case FRONT:
+                    break;
+                case TOP:
+                    break;
+                case BOTTOM:
+                    break;
+            }
+        }
 
     }
 }
