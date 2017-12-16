@@ -2,6 +2,7 @@ package ie.aaronmeaney.rubikscube;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -11,15 +12,18 @@ public class RubiksCube implements Serializable {
 
     private List<RubiksFace> rubiksFaceList;
 
-    public RubiksCube() {
-        rubiksFaceList = new ArrayList<>();
+    private LinkedHashMap<RubiksColor, Integer> rubiksColorMap;
 
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.FRONT));    // WHITE
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BACK));     // YELLOW
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.LEFT));     // GREEN
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.RIGHT));    // BLUE
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.TOP));      // ORANGE
-        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BOTTOM));   // RED
+    public RubiksCube(LinkedHashMap rubiksColorMap) {
+        rubiksFaceList = new ArrayList<>();
+        this.rubiksColorMap = rubiksColorMap;
+
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.FRONT, this));    // WHITE
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BACK, this));     // YELLOW
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.LEFT, this));     // GREEN
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.RIGHT, this));    // BLUE
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.TOP, this));      // ORANGE
+        rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BOTTOM, this));   // RED
     }
 
     /**
@@ -58,5 +62,14 @@ public class RubiksCube implements Serializable {
         }
 
         return null;
+    }
+
+    /**
+     * Returns the calibrated integer representation of the Rubiks Color
+     * @param color The RubiksColor to convert
+     * @return The integer representation of the RubiksColor
+     */
+    public Integer convertRubiksColorToInteger(RubiksColor color) {
+        return rubiksColorMap.get(color);
     }
 }

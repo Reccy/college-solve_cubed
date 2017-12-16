@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class RubiksFace implements Serializable {
 
+    private RubiksCube parentCube;
+
     public enum RubiksFacePosition {
         FRONT,
         LEFT,
@@ -33,8 +35,9 @@ public class RubiksFace implements Serializable {
      * Constructs the RubiksFace.
      * @param facePosition The face position relative to front.
      */
-    public RubiksFace (RubiksFacePosition facePosition) {
+    public RubiksFace (RubiksFacePosition facePosition, RubiksCube parentCube) {
         this.facePosition = facePosition;
+        this.parentCube = parentCube;
 
         switch (facePosition) {
             case FRONT:
@@ -56,6 +59,8 @@ public class RubiksFace implements Serializable {
                 faceColor = RubiksColor.RED;
                 break;
         }
+
+        squares[1][1] = faceColor;
     }
 
     /**
@@ -107,9 +112,19 @@ public class RubiksFace implements Serializable {
         return squares[x][y];
     }
 
+    public int getSquareAsColor(int col, int row) {
+        RubiksColor rColor = getSquare(col, row);
+
+        if (rColor == null) {
+            return 0;
+        }
+
+        return parentCube.convertRubiksColorToInteger(rColor);
+    }
+
     /**
      * Returns the RubiksColor of this face.
-     * Synonymous with getSquare(1,1).
+     * Synonymous with getSquare(2,2).
      * @return The RubiksColor value.
      */
     public RubiksColor getFaceColor() {

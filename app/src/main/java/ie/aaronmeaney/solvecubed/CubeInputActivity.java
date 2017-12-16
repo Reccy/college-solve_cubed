@@ -98,7 +98,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         colorPalette = IntentUtilities.GetExtraLinkedHashMap(getIntent(), getResources().getString(R.string.palette_picker_hash_map));
 
         // Init Rubik's Cube
-        rubiksCube = new RubiksCube();
+        rubiksCube = new RubiksCube(colorPalette);
 
         // Inflate the view
         setContentView(R.layout.activity_cube_input);
@@ -219,7 +219,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         };
 
         readTimer = new Timer();
-        readTimer.schedule(timerTask, 100, 100);
+        readTimer.schedule(timerTask, 250, 250);
     }
 
 
@@ -316,7 +316,7 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
         face.setSquare(getIndicatorColor(indicatorRight),       3,2);       // CENTER RIGHT
         face.setSquare(getIndicatorColor(indicatorBottomLeft),  1,3);       // BOTTOM LEFT
         face.setSquare(getIndicatorColor(indicatorBottom),      2,3);       // BOTTOM CENTER
-        face.setSquare(getIndicatorColor(indicatorRight),       3,3);       // BOTTOM RIGHT
+        face.setSquare(getIndicatorColor(indicatorBottomRight), 3,3);       // BOTTOM RIGHT
     }
 
     @Override
@@ -370,29 +370,20 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
         // Set indicator color to newColor
         indicator.setBackgroundColor(colorPalette.get(color));
+        indicator.setTag(color);
     }
 
     /**
-     * Returns the indicator's closest Rubik's Cube color
+     * Returns the indicator's Rubik's Cube color
      * @param indicator Indicator to get the color of
-     * @return
+     * @return The RubiksColor of the indicator
      */
     private RubiksColor getIndicatorColor(ImageView indicator) {
-        int actualColor = indicator.getSolidColor();
+        RubiksColor color = (RubiksColor)indicator.getTag();
 
-        RubiksColor closestRubiksColor = RubiksColor.RED;
-        int closestDistance = Integer.MAX_VALUE;
+        System.out.println("CLOSEST C: " + color);
 
-        for (HashMap.Entry<RubiksColor, Integer> entry : colorPalette.entrySet()) {
-            int distance = getColorDifference(entry.getValue(), actualColor);
-
-            if (distance < closestDistance) {
-                closestRubiksColor = entry.getKey();
-                closestDistance = distance;
-            }
-        }
-
-        return closestRubiksColor;
+        return color;
     }
 
     /**

@@ -339,7 +339,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Cube Face -->
+        <!-- Cube Face (Front) -->
         <LinearLayout
             android:id="@+id/cube_confirmation_layout_face_front"
             android:layout_below="@id/cube_confirmation_layout_face_top"
@@ -428,7 +428,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Cube Face -->
+        <!-- Cube Face (Right) -->
         <LinearLayout
             android:id="@+id/cube_confirmation_layout_face_right"
             android:layout_below="@id/cube_confirmation_layout_face_top"
@@ -517,7 +517,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Cube Face -->
+        <!-- Cube Face (Back) -->
         <LinearLayout
             android:id="@+id/cube_confirmation_layout_face_back"
             android:layout_below="@id/cube_confirmation_layout_face_top"
