@@ -368,6 +368,31 @@ public class RubiksCube implements Serializable {
                 leftEdgeFace = RubiksFace.RubiksFacePosition.FRONT;
                 rightEdgeFace = RubiksFace.RubiksFacePosition.BACK;
 
+                // Registry is used to store rows so they don't get overwritten
+                registry1 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,1));
+                registry2 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,2));
+                registry3 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,3));
+
+                // Change the up edge
+                swapColors(upEdgeFace, 3,1, registry1);
+                swapColors(upEdgeFace, 3,2, registry2);
+                swapColors(upEdgeFace, 3,3, registry3);
+
+                // Change the right edge
+                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,2, registry2);
+                swapColors(rightEdgeFace, 1,3, registry3);
+
+                // Change the down edge
+                swapColors(downEdgeFace, 3,1, registry1);
+                swapColors(downEdgeFace, 3,2, registry2);
+                swapColors(downEdgeFace, 3,3, registry3);
+
+                // Change the left edge
+                swapColors(leftEdgeFace, 3,1, registry1);
+                swapColors(leftEdgeFace, 3,2, registry2);
+                swapColors(leftEdgeFace, 3,3, registry3);
+
                 break;
             case BACK:
                 upEdgeFace = RubiksFace.RubiksFacePosition.UP;
@@ -539,6 +564,31 @@ public class RubiksCube implements Serializable {
                 downEdgeFace = RubiksFace.RubiksFacePosition.DOWN;
                 leftEdgeFace = RubiksFace.RubiksFacePosition.FRONT;
                 rightEdgeFace = RubiksFace.RubiksFacePosition.BACK;
+
+                // Registry is used to store rows so they don't get overwritten
+                registry1 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,1));
+                registry2 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,2));
+                registry3 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,3));
+
+                // Change the down edge
+                swapColors(downEdgeFace, 3,1, registry1);
+                swapColors(downEdgeFace, 3,2, registry2);
+                swapColors(downEdgeFace, 3,3, registry3);
+
+                // Change the right edge
+                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,2, registry2);
+                swapColors(rightEdgeFace, 1,3, registry3);
+
+                // Change the up edge
+                swapColors(upEdgeFace, 3,1, registry1);
+                swapColors(upEdgeFace, 3,2, registry2);
+                swapColors(upEdgeFace, 3,3, registry3);
+
+                // Change the left edge
+                swapColors(leftEdgeFace, 3,1, registry1);
+                swapColors(leftEdgeFace, 3,2, registry2);
+                swapColors(leftEdgeFace, 3,3, registry3);
 
                 break;
             case BACK:
