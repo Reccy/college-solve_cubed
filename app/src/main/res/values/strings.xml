@@ -60,6 +60,8 @@
     <!-- Error Strings -->
     <string name="err_security_permissions">Security Permissions Error</string>
     <string name="err_security_permissions_desc">Please ensure app permissions are enabled and then restart the application.</string>
+    <string name="err_misconfigured_cube">Misconfigured Cube Error</string>
+    <string name="err_misconfigured_cube_desc">The captured cube is not valid. Please try capturing the cube again.</string>
 
     <!-- Preferences Strings -->
     <string name="pref_master_key">solve_cubed_preferences</string>

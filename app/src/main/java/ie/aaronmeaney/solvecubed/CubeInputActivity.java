@@ -1,10 +1,16 @@
 package ie.aaronmeaney.solvecubed;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.SurfaceTexture;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Pair;
 import android.view.MotionEvent;
@@ -87,6 +93,9 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
 
     // Timer to schedule indicator UI updates
     private Timer readTimer;
+
+    // Alert Dialog for misconfigured Rubiks Cube
+    private AlertDialog misconfiguredCubeDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -174,7 +183,24 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
                         break;
                     case RED:
                         saveCubeReadings(RubiksColor.RED);
-                        IntentUtilities.StartActivityWithRubiksCube(thisActivity, CubeConfirmationActivity.class, getResources().getString(R.string.cube_input_cube_data), rubiksCube);
+
+                        if (rubiksCube.isValidConfiguration()) {
+                            IntentUtilities.StartActivityWithRubiksCube(CubeInputActivity.this, CubeConfirmationActivity.class, getResources().getString(R.string.cube_input_cube_data), rubiksCube);
+                        } else {
+                            misconfiguredCubeDialog = new AlertDialog.Builder(CubeInputActivity.this).setTitle(R.string.err_misconfigured_cube)
+                                    .setMessage(R.string.err_misconfigured_cube_desc)
+                                    .setCancelable(false)
+                                    .setPositiveButton(R.string.btn_okay, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            misconfiguredCubeDialog = null;
+                                            CubeInputActivity.this.recreate();
+                                        }
+                                    })
+                                    .create();
+                            misconfiguredCubeDialog.show();
+                        }
                         break;
                 }
             }

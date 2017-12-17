@@ -1,6 +1,8 @@
 package ie.aaronmeaney.rubikscube;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Data represenatation of a single Rubik's cube face
@@ -129,5 +131,25 @@ public class RubiksFace implements Serializable {
      */
     public RubiksColor getFaceColor() {
         return faceColor;
+    }
+
+    /**
+     * Returns a flattened List of the RubiksCube Square Colors.
+     * @return The list of RubiksColors in the face.
+     */
+    public List<RubiksColor> getRubiksColors() {
+        List<RubiksColor> flattenedList = new ArrayList<>();
+
+        flattenedList.add(getSquare(1,1));
+        flattenedList.add(getSquare(2,1));
+        flattenedList.add(getSquare(3,1));
+        flattenedList.add(getSquare(1,2));
+        flattenedList.add(getSquare(2,2));
+        flattenedList.add(getSquare(3,2));
+        flattenedList.add(getSquare(1,3));
+        flattenedList.add(getSquare(2,3));
+        flattenedList.add(getSquare(3,3));
+
+        return flattenedList;
     }
 }
