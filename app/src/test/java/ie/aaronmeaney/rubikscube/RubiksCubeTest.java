@@ -11,65 +11,34 @@ public class RubiksCubeTest {
     public void isValidConfiguration() throws Exception {
         RubiksCube rubiksCube = getDefaultCube();
 
-        printCube(rubiksCube, "Initial Config");
+        rubiksCube.setSquare(RubiksFace.RubiksFacePosition.UP, 1,1, RubiksColor.GREEN);
 
-        // Test UP clockwise
+        rubiksCube.setSquare(RubiksFace.RubiksFacePosition.UP, 3, 2, RubiksColor.YELLOW);
+
+        rubiksCube.printCube("Initial Config [" + rubiksCube.hashCode() + "]");
+
+        // Test UP clockwise face
         rubiksCube.performMove(RubiksMove.UP);
 
-        printCube(rubiksCube, "UP MOVE");
+        rubiksCube.printCube("UP MOVE");
 
-        assertEquals(RubiksColor.BLUE, rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,1));
-    }
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 1,1));
 
-    @Test
-    public void performMove() throws Exception {
-    }
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 3, 1));
 
-    /**
-     * Prints the Rubik's Cube flattened map to the console
-     * @param rubiksCube The cube to print
-     */
-    private void printCube(RubiksCube rubiksCube, String title) {
-        System.out.print("\n");
-        System.out.println("[ " + title + " ]");
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3,1)));
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3,2)));
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3,3)));
-        System.out.println(singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3,1)));
-        System.out.println(singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3,2)));
-        System.out.println(singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3,3)));
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,1)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,1)));
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,2)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,2)));
-        System.out.println("   " + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,3)) + singleChar(rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,3)));
-        System.out.print("\n");
-    }
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 3, 2));
 
-    private void printCube(RubiksCube rubiksCube) {
-        printCube(rubiksCube, "RUBIK'S CUBE");
-    }
+        assertEquals(RubiksColor.YELLOW, rubiksCube.getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2,3));
 
-    /**
-     * Returns the RubiksColor's first letter
-     * @param color The color
-     * @return The first character of the color
-     */
-    private String singleChar(RubiksColor color) {
-        switch(color) {
-            case RED:
-                return "R";
-            case GREEN:
-                return "G";
-            case BLUE:
-                return "B";
-            case YELLOW:
-                return "Y";
-            case ORANGE:
-                return "O";
-            case WHITE:
-                return "W";
-        }
+        //Test UP clockwise edge
 
-        return "R";
+        assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.FRONT, 2, 1));
+
+        assertEquals(RubiksColor.YELLOW, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 2, 1));
+
+        assertEquals(RubiksColor.WHITE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 2, 1));
+
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.BACK, 2, 1));
     }
 
     /**

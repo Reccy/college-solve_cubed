@@ -33,6 +33,22 @@ public class RubiksFace implements Serializable {
      */
     private RubiksColor faceColor;
 
+    public RubiksFace (RubiksFace originalFace) {
+        this.facePosition = originalFace.facePosition;
+        this.parentCube = originalFace.parentCube;
+        this.faceColor = originalFace.faceColor;
+
+        squares[0][0] = originalFace.squares[0][0];
+        squares[1][0] = originalFace.squares[1][0];
+        squares[2][0] = originalFace.squares[2][0];
+        squares[0][1] = originalFace.squares[0][1];
+        squares[1][1] = originalFace.squares[1][1];
+        squares[2][1] = originalFace.squares[2][1];
+        squares[0][2] = originalFace.squares[0][2];
+        squares[1][2] = originalFace.squares[1][2];
+        squares[2][2] = originalFace.squares[2][2];
+    }
+
     /**
      * Constructs the RubiksFace.
      * @param facePosition The face position relative to front.
@@ -151,5 +167,13 @@ public class RubiksFace implements Serializable {
         flattenedList.add(getSquare(3,3));
 
         return flattenedList;
+    }
+
+    /**
+     * Set the parent cube of the face
+     * @param parent The RubiksCube to set as parent
+     */
+    public void setParentCube(RubiksCube parent) {
+        this.parentCube = parent;
     }
 }

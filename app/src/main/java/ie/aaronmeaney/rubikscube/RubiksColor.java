@@ -33,4 +33,5 @@ public enum RubiksColor {
     /**
      * White tile
      */
-    WHITE}
+    WHITE
+}
