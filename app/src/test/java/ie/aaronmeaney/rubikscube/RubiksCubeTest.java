@@ -97,6 +97,20 @@ public class RubiksCubeTest {
         assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.DOWN, 2, 1));
 
         assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 1, 2));
+
+        /*
+         * FRONT INVERSE MOVE
+         */
+
+        rubiksCube.performMove(RubiksMove.INVERSE_FRONT);
+
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 2, 3));
+
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 3, 2));
+
+        assertEquals(RubiksColor.RED, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.DOWN, 2, 1));
+
+        assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 1, 2));
     }
 
     /**

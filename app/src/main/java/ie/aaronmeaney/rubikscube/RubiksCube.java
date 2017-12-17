@@ -451,6 +451,31 @@ public class RubiksCube implements Serializable {
                 leftEdgeFace = RubiksFace.RubiksFacePosition.LEFT;
                 rightEdgeFace = RubiksFace.RubiksFacePosition.RIGHT;
 
+                // Registry is used to store rows so they don't get overwritten
+                registry1 = new RubiksColorReference(getRubiksFace(rightEdgeFace).getSquare(1,1));
+                registry2 = new RubiksColorReference(getRubiksFace(rightEdgeFace).getSquare(1,2));
+                registry3 = new RubiksColorReference(getRubiksFace(rightEdgeFace).getSquare(1,3));
+
+                // Change the up edge
+                swapColors(upEdgeFace, 1,3, registry1);
+                swapColors(upEdgeFace, 2,3, registry2);
+                swapColors(upEdgeFace, 3,3, registry3);
+
+                // Change the left edge
+                swapColors(leftEdgeFace, 3,1, registry1);
+                swapColors(leftEdgeFace, 3,2, registry2);
+                swapColors(leftEdgeFace, 3,3, registry3);
+
+                // Change the down edge
+                swapColors(downEdgeFace, 1,1, registry1);
+                swapColors(downEdgeFace, 2,1, registry2);
+                swapColors(downEdgeFace, 3,1, registry3);
+
+                // Change the right edge
+                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,2, registry2);
+                swapColors(rightEdgeFace, 1,3, registry3);
+
                 break;
             case LEFT:
                 upEdgeFace = RubiksFace.RubiksFacePosition.UP;
