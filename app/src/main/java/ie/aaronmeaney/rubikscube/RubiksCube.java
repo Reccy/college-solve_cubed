@@ -161,6 +161,8 @@ public class RubiksCube implements Serializable {
     public void performMove(RubiksMove move) {
         RubiksCube initialState = new RubiksCube(this);
 
+        printCube("PRE: " + move);
+
         switch (move) {
             case UP:
 
@@ -173,24 +175,65 @@ public class RubiksCube implements Serializable {
 
                 break;
             case LEFT:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.LEFT);
+
                 break;
             case RIGHT:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.RIGHT);
+
                 break;
             case FRONT:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.FRONT);
+
                 break;
             case BACK:
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.BACK);
+
                 break;
             case UP2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.UP);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.UP);
+
                 break;
             case DOWN2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.DOWN);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.DOWN);
+
                 break;
             case LEFT2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.LEFT);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.LEFT);
+
                 break;
             case RIGHT2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.RIGHT);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.RIGHT);
+
                 break;
             case FRONT2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.FRONT);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.FRONT);
+
                 break;
             case BACK2:
+
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.BACK);
+                initialState = new RubiksCube(this);
+                moveFaceClockwise(initialState, RubiksFace.RubiksFacePosition.BACK);
+
                 break;
             case INVERSE_UP:
 
@@ -203,14 +246,28 @@ public class RubiksCube implements Serializable {
 
                 break;
             case INVERSE_LEFT:
+
+                moveFaceAntiClockwise(initialState, RubiksFace.RubiksFacePosition.LEFT);
+
                 break;
             case INVERSE_RIGHT:
+
+                moveFaceAntiClockwise(initialState, RubiksFace.RubiksFacePosition.RIGHT);
+
                 break;
             case INVERSE_FRONT:
+
+                moveFaceAntiClockwise(initialState, RubiksFace.RubiksFacePosition.FRONT);
+
                 break;
             case INVERSE_BACK:
+
+                moveFaceAntiClockwise(initialState, RubiksFace.RubiksFacePosition.BACK);
+
                 break;
         }
+
+        printCube("POST: " + move);
 
     }
 
@@ -246,6 +303,31 @@ public class RubiksCube implements Serializable {
                 downEdgeFace = RubiksFace.RubiksFacePosition.DOWN;
                 leftEdgeFace = RubiksFace.RubiksFacePosition.LEFT;
                 rightEdgeFace = RubiksFace.RubiksFacePosition.RIGHT;
+
+                // Registry is used to store rows so they don't get overwritten
+                registry1 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,1));
+                registry2 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,2));
+                registry3 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,3));
+
+                // Change the up edge
+                swapColors(upEdgeFace, 1,3, registry1);
+                swapColors(upEdgeFace, 2,3, registry2);
+                swapColors(upEdgeFace, 3,3, registry3);
+
+                // Change the right edge
+                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,2, registry2);
+                swapColors(rightEdgeFace, 1,3, registry3);
+
+                // Change the down edge
+                swapColors(downEdgeFace, 1,1, registry1);
+                swapColors(downEdgeFace, 2,1, registry2);
+                swapColors(downEdgeFace, 3,1, registry3);
+
+                // Change the left edge
+                swapColors(leftEdgeFace, 3,1, registry1);
+                swapColors(leftEdgeFace, 3,2, registry2);
+                swapColors(leftEdgeFace, 3,3, registry3);
 
                 break;
             case LEFT:
@@ -521,7 +603,6 @@ public class RubiksCube implements Serializable {
         System.out.println("   " + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,1)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,1)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,1)));
         System.out.println("   " + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,2)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,2)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,2)));
         System.out.println("   " + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1,3)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2,3)) + singleChar(getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3,3)));
-        System.out.print("\n");
     }
 
     public void printCube() {

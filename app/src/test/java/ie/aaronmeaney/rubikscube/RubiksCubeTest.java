@@ -83,6 +83,20 @@ public class RubiksCubeTest {
         assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 2, 3));
 
         assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 2, 3));
+
+        /*
+         * FRONT MOVE
+         */
+
+        rubiksCube.performMove(RubiksMove.FRONT);
+
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 2, 3));
+
+        assertEquals(RubiksColor.RED, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 3, 2));
+
+        assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.DOWN, 2, 1));
+
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 1, 2));
     }
 
     /**
