@@ -169,6 +169,34 @@ public class RubiksCubeTest {
         assertEquals(RubiksColor.YELLOW, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.BACK, 1, 2));
 
         assertEquals(RubiksColor.WHITE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.FRONT, 3, 2));
+
+        /*
+         * BACK MOVE
+         */
+
+        rubiksCube.performMove(RubiksMove.BACK);
+
+        assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 2, 1));
+
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.DOWN, 2, 3));
+
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 1, 2));
+
+        assertEquals(RubiksColor.RED, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 3, 2));
+
+        /*
+         * BACK INVERSE MOVE
+         */
+
+        rubiksCube.performMove(RubiksMove.INVERSE_BACK);
+
+        assertEquals(RubiksColor.ORANGE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.UP, 2, 1));
+
+        assertEquals(RubiksColor.RED, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.DOWN, 2, 3));
+
+        assertEquals(RubiksColor.GREEN, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.LEFT, 1, 2));
+
+        assertEquals(RubiksColor.BLUE, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.RIGHT, 3, 2));
     }
 
     /**
