@@ -16,8 +16,8 @@ public class RubiksFace implements Serializable {
         LEFT,
         RIGHT,
         BACK,
-        TOP,
-        BOTTOM
+        UP,
+        DOWN
     }
 
     private RubiksFacePosition facePosition;
@@ -54,10 +54,10 @@ public class RubiksFace implements Serializable {
             case BACK:
                 faceColor = RubiksColor.YELLOW;
                 break;
-            case TOP:
+            case UP:
                 faceColor = RubiksColor.ORANGE;
                 break;
-            case BOTTOM:
+            case DOWN:
                 faceColor = RubiksColor.RED;
                 break;
         }

@@ -89,10 +89,10 @@ public class CubeConfirmationActivity extends SolveCubedAppCompatActivity {
                 case FRONT:
                     root = findViewById(R.id.cube_confirmation_layout_face_front);
                     break;
-                case TOP:
+                case UP:
                     root = findViewById(R.id.cube_confirmation_layout_face_top);
                     break;
-                case BOTTOM:
+                case DOWN:
                     root = findViewById(R.id.cube_confirmation_layout_face_bottom);
                     break;
             }

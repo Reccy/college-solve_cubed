@@ -1,19 +1,13 @@
 package ie.aaronmeaney.solvecubed;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.SurfaceTexture;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Pair;
-import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -175,11 +169,11 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
                         break;
                     case WHITE:
                         saveCubeReadings(RubiksColor.WHITE);
-                        setFace(RubiksFace.RubiksFacePosition.TOP);
+                        setFace(RubiksFace.RubiksFacePosition.UP);
                         break;
                     case ORANGE:
                         saveCubeReadings(RubiksColor.ORANGE);
-                        setFace(RubiksFace.RubiksFacePosition.BOTTOM);
+                        setFace(RubiksFace.RubiksFacePosition.DOWN);
                         break;
                     case RED:
                         saveCubeReadings(RubiksColor.RED);
@@ -313,13 +307,13 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.BLUE);
                 currentFaceColor = RubiksColor.YELLOW;
                 break;
-            case TOP:       // ORANGE
+            case UP:       // ORANGE
                 setIndicatorColor(indicatorCenter, RubiksColor.ORANGE);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.YELLOW);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
                 currentFaceColor = RubiksColor.ORANGE;
                 break;
-            case BOTTOM:    // RED
+            case DOWN:    // RED
                 setIndicatorColor(indicatorCenter, RubiksColor.RED);
                 setRelativeFaceColor(relativeFaceTop, RubiksColor.WHITE);
                 setRelativeFaceColor(relativeFaceLeft, RubiksColor.GREEN);
@@ -335,14 +329,14 @@ public class CubeInputActivity extends SolveCubedAppCompatActivity implements Te
     private void saveCubeReadings(RubiksColor color) {
         RubiksFace face = rubiksCube.getRubiksFace(color);
 
-        face.setSquare(getIndicatorColor(indicatorTopLeft),     1,1);       // TOP LEFT
-        face.setSquare(getIndicatorColor(indicatorTop),         2,1);       // TOP CENTER
-        face.setSquare(getIndicatorColor(indicatorTopRight),    3,1);       // TOP RIGHT
+        face.setSquare(getIndicatorColor(indicatorTopLeft),     1,1);       // UP LEFT
+        face.setSquare(getIndicatorColor(indicatorTop),         2,1);       // UP CENTER
+        face.setSquare(getIndicatorColor(indicatorTopRight),    3,1);       // UP RIGHT
         face.setSquare(getIndicatorColor(indicatorLeft),        1,2);       // CENTER LEFT
         face.setSquare(getIndicatorColor(indicatorRight),       3,2);       // CENTER RIGHT
-        face.setSquare(getIndicatorColor(indicatorBottomLeft),  1,3);       // BOTTOM LEFT
-        face.setSquare(getIndicatorColor(indicatorBottom),      2,3);       // BOTTOM CENTER
-        face.setSquare(getIndicatorColor(indicatorBottomRight), 3,3);       // BOTTOM RIGHT
+        face.setSquare(getIndicatorColor(indicatorBottomLeft),  1,3);       // DOWN LEFT
+        face.setSquare(getIndicatorColor(indicatorBottom),      2,3);       // DOWN CENTER
+        face.setSquare(getIndicatorColor(indicatorBottomRight), 3,3);       // DOWN RIGHT
     }
 
     @Override
