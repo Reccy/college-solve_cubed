@@ -1,5 +1,7 @@
 package ie.aaronmeaney.rubikscube;
 
+import java.util.Random;
+
 /**
  * Represents a list of legal moves to modify a Rubik's Cube
  */
@@ -93,5 +95,12 @@ public enum RubiksMove {
     /**
      * Moves the back face anti-clockwise by 90 degrees
      */
-    INVERSE_BACK,
+    INVERSE_BACK;
+
+    public static RubiksMove random() {
+        Random random = new Random();
+        int i = random.nextInt(17);
+
+        return RubiksMove.values()[i];
+    }
 }

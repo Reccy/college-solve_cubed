@@ -428,6 +428,14 @@ public class RubiksCubeTest {
         assertEquals(RubiksColor.YELLOW, rubiksCube.getSquare(RubiksFace.RubiksFacePosition.BACK, 1,3));
 
         rubiksCube.performMove(RubiksMove.INVERSE_UP);
+
+        /*
+         * Test Algorithm
+         */
+
+        rubiksCube.jumble(100);
+
+        rubiksCube.generateSolutionList();
     }
 
     /**

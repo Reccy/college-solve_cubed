@@ -17,15 +17,20 @@ public class RubiksCube implements Serializable {
 
     private LinkedHashMap<RubiksColor, Integer> rubiksColorMap;
 
+    private List<RubiksMove> solutionMoves;
+
     public RubiksCube(RubiksCube rubiksCube) {
         rubiksFaceList = new ArrayList<>();
         rubiksColorMap = new LinkedHashMap<>();
+        solutionMoves = new ArrayList<>();
 
         for (RubiksFace f : rubiksCube.rubiksFaceList) {
             RubiksFace newFace = new RubiksFace(f);
             f.setParentCube(this);
             rubiksFaceList.add(newFace);
         }
+
+        solutionMoves.addAll(rubiksCube.getSolutionMoves());
 
         for (LinkedHashMap.Entry<RubiksColor, Integer> entry : rubiksCube.rubiksColorMap.entrySet()) {
             rubiksColorMap.put(entry.getKey(), entry.getValue());
@@ -37,6 +42,7 @@ public class RubiksCube implements Serializable {
     public RubiksCube(LinkedHashMap rubiksColorMap) {
         rubiksFaceList = new ArrayList<>();
         this.rubiksColorMap = rubiksColorMap;
+        solutionMoves = new ArrayList<>();
 
         rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.FRONT, this));    // WHITE
         rubiksFaceList.add(new RubiksFace(RubiksFace.RubiksFacePosition.BACK, this));     // YELLOW
@@ -214,6 +220,31 @@ public class RubiksCube implements Serializable {
         System.out.println("RED:    " + redSquares);
 
         return (blueSquares == 9 && yellowSquares == 9 && greenSquares == 9 && whiteSquares == 9 && orangeSquares == 9 && redSquares == 9);
+    }
+
+    /**
+     * Generates the list of moves to solve the cube
+     */
+    public void generateSolutionList() {
+
+    }
+
+    /**
+     * Gets the list of moves to solve the cube
+     * @return List of RubiksMoves
+     */
+    public List<RubiksMove> getSolutionMoves() {
+        return solutionMoves;
+    }
+
+    /**
+     * Jumbles up the cube randomly
+     * @param moveCount The amount of random moves to take
+     */
+    public void jumble(int moveCount) {
+        for (int i = 0; i < moveCount; i++) {
+            performMove(RubiksMove.random());
+        }
     }
 
     /**
