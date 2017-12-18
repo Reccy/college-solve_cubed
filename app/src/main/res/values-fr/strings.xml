@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_btn_start">Start Solving</string>
+    <string name="main_button_preferences">Préférences</string>
+    <string name="preferences_activity_title">SolveCubed Préférences</string>
+    <string name="palette_picker_activity_title">Sélecteur de Palette de Couleurs</string>
+    <string name="palette_picker_probe_content_description">Le sélecteur de palette superposé sur le dessus de la caméra.</string>
+    <string name="palette_picker_indicator_actual_content_description">La couleur de l\'objet sur lequel vous pointez l\'appareil photo.</string>
+    <string name="palette_picker_indicator_reference_content_description">La couleur que vous devriez associer à votre vrai cube de Rubik.</string>
+    <string name="palette_picker_help">Placez le sélecteur de couleur sur les carrés de cube de votre Rubik pour calibrer l\'appareil photo. Le carré sélectionné peut être vu sur le côté droit de l\'écran.</string>
+    <string name="palette_confirmation_activity_title">Confirmer la palette de couleurs.</string>
+    <string name="palette_confirmation_help">Confirmez si ce sont les couleurs correctes que vous avez calibrées avec votre cube Rubik.</string>
+    <string name="cube_input_activity_title">Configurer le cube</string>
+    <string name="cube_input_help">Placez votre cube de Rubik dans la grille et appuyez sur le bouton de capture pour configurer le cube de Rubik.</string>
+    <string name="cube_confirmation_activity_title">Confirmer la configuration du cube</string>
+    <string name="cube_confirmation_help">Confirmez si ce dépliant correspond à la configuration de votre cube Rubik.</string>
+    <string name="cube_solver_help">Suivez les étapes pour résoudre votre cube Rubik.</string>
+    <string name="menu_action_placeholder">Cette action n\'a pas été implémentée!</string>
+    <string name="menu_action_help_name">"Aidez-moi "</string>
+    <string name="btn_okay">"D'Accord "</string>
+    <string name="btn_cancel">"Annuler "</string>
+    <string name="btn_return_to_main_menu">Retour au menu principal</string>
+    <string name="btn_open_app_settings">Ouvrir les paramètres de l\'application</string>
+    <string name="btn_previous">"Précédent "</string>
+    <string name="btn_next">"Prochain "</string>
+    <string name="err_security_permissions">Erreur d\'autorisations de sécurité</string>
+    <string name="err_security_permissions_desc">Assurez-vous que les autorisations de l\'application sont activées, puis redémarrez l\'application.</string>
+    <string name="err_misconfigured_cube">Erreur de cube mal configurée</string>
+    <string name="err_misconfigured_cube_desc">Le cube capturé n\'est pas valide. Veuillez réessayer de capturer le cube.</string>
+    <string name="pref_splash_enabled_title">Activer l\'écran de démarrage</string>
+    <string name="pref_splash_enabled_desc">Afficher l\'écran d\'accueil pendant 5 secondes</string>
+    <string name="pref_text_speech_enabled_title">Activer le texte à la parole</string>
+    <string name="pref_text_speech_enabled_desc">Activer l\'accessibilité vocale pour le menu d\'aide</string>
+    <string name="color_red">Rouge</string>
+    <string name="color_green">Vert</string>
+    <string name="color_blue">Bleu</string>
+    <string name="color_yellow">Jaune</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_white">Blanc</string>
+    <string name="cube_solver_activity_title">Solveur du Cube de Rubik</string>
+    <string name="app_description">Solveur du Cube de Rubik</string>
+</resources>
