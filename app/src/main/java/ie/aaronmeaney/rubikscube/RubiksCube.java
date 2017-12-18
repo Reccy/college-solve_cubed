@@ -94,6 +94,68 @@ public class RubiksCube implements Serializable {
     }
 
     /**
+     * Checks if the cube is solved
+     * @return True if solved, False otherwise
+     */
+    public boolean isSolved() {
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1, 1) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(2, 1) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3, 1) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1, 2) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3, 2) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(1, 3) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(2, 3) != RubiksColor.BLUE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.RIGHT).getSquare(3, 3) != RubiksColor.BLUE) return false;
+
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1, 1) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(2, 1) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3, 1) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1, 2) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3, 2) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(1, 3) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(2, 3) != RubiksColor.YELLOW) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.BACK).getSquare(3, 3) != RubiksColor.YELLOW) return false;
+
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1, 1) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(2, 1) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3, 1) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1, 2) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3, 2) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(1, 3) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(2, 3) != RubiksColor.GREEN) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.LEFT).getSquare(3, 3) != RubiksColor.GREEN) return false;
+
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1, 1) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(2, 1) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3, 1) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1, 2) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3, 2) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(1, 3) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(2, 3) != RubiksColor.WHITE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.FRONT).getSquare(3, 3) != RubiksColor.WHITE) return false;
+
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1, 1) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2, 1) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3, 1) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1, 2) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3, 2) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(1, 3) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(2, 3) != RubiksColor.ORANGE) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.UP).getSquare(3, 3) != RubiksColor.ORANGE) return false;
+
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1, 1) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2, 1) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3, 1) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1, 2) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3, 2) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(1, 3) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(2, 3) != RubiksColor.RED) return false;
+        if (getRubiksFace(RubiksFace.RubiksFacePosition.DOWN).getSquare(3, 3) != RubiksColor.RED) return false;
+
+        return true;
+    }
+
+    /**
      * Checks if the Rubik's cube is valid, and it solveable
      * @return True if solvable, False otherwise
      */
