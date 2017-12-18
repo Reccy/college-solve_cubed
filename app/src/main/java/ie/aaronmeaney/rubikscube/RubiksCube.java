@@ -547,9 +547,9 @@ public class RubiksCube implements Serializable {
                 swapColors(downEdgeFace, 3,1, registry3);
 
                 // Change the right edge
-                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,3, registry1);
                 swapColors(rightEdgeFace, 1,2, registry2);
-                swapColors(rightEdgeFace, 1,3, registry3);
+                swapColors(rightEdgeFace, 1,1, registry3);
 
                 break;
             case LEFT:
@@ -564,14 +564,14 @@ public class RubiksCube implements Serializable {
                 registry3 = new RubiksColorReference(getRubiksFace(leftEdgeFace).getSquare(3,3));
 
                 // Change the down edge
-                swapColors(downEdgeFace, 1,1, registry1);
+                swapColors(downEdgeFace, 1,3, registry1);
                 swapColors(downEdgeFace, 1,2, registry2);
-                swapColors(downEdgeFace, 1,3, registry3);
+                swapColors(downEdgeFace, 1,1, registry3);
 
                 // Change the right edge
-                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,3, registry1);
                 swapColors(rightEdgeFace, 1,2, registry2);
-                swapColors(rightEdgeFace, 1,3, registry3);
+                swapColors(rightEdgeFace, 1,1, registry3);
 
                 // Change the up edge
                 swapColors(upEdgeFace, 1,1, registry1);
@@ -579,9 +579,9 @@ public class RubiksCube implements Serializable {
                 swapColors(upEdgeFace, 1,3, registry3);
 
                 // Change the left edge
-                swapColors(leftEdgeFace, 3,1, registry1);
+                swapColors(leftEdgeFace, 3,3, registry1);
                 swapColors(leftEdgeFace, 3,2, registry2);
-                swapColors(leftEdgeFace, 3,3, registry3);
+                swapColors(leftEdgeFace, 3,1, registry3);
 
                 break;
             case RIGHT:
@@ -601,9 +601,9 @@ public class RubiksCube implements Serializable {
                 swapColors(downEdgeFace, 3,3, registry3);
 
                 // Change the right edge
-                swapColors(rightEdgeFace, 1,1, registry1);
+                swapColors(rightEdgeFace, 1,3, registry1);
                 swapColors(rightEdgeFace, 1,2, registry2);
-                swapColors(rightEdgeFace, 1,3, registry3);
+                swapColors(rightEdgeFace, 1,1, registry3);
 
                 // Change the up edge
                 swapColors(upEdgeFace, 3,1, registry1);
