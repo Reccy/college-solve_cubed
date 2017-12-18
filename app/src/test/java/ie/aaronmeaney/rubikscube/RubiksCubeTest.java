@@ -16,6 +16,8 @@ public class RubiksCubeTest {
 
         RubiksCube rubiksCube = getDefaultCube();
 
+        assertEquals(true, rubiksCube.isSolved());
+
         rubiksCube.setSquare(RubiksFace.RubiksFacePosition.UP, 1,1, RubiksColor.GREEN);
 
         rubiksCube.setSquare(RubiksFace.RubiksFacePosition.UP, 3, 2, RubiksColor.YELLOW);
