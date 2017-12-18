@@ -226,7 +226,12 @@ public class RubiksCube implements Serializable {
      * Generates the list of moves to solve the cube
      */
     public void generateSolutionList() {
-
+        // Will probably solve it in a few years
+        while (!isSolved()) {
+            RubiksMove move = RubiksMove.random();
+            solutionMoves.add(move);
+            performMove(move);
+        }
     }
 
     /**
