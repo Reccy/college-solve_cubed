@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="main_btn_start">Start Solving</string>
+    <string name="main_btn_start">Commencer</string>
     <string name="main_button_preferences">Préférences</string>
     <string name="preferences_activity_title">SolveCubed Préférences</string>
     <string name="palette_picker_activity_title">Sélecteur de Palette de Couleurs</string>
